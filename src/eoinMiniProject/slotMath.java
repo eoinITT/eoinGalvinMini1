@@ -11,9 +11,12 @@ public class slotMath {
     private int randomNum8;
     private int randomNum9;
     private int[] randomResultArray;
-    private int winningMultiplierBasedOnSymbolrow1;
-    private int winningMultiplierBasedOnSymbolrow2;
-    private int winningMultiplierBasedOnSymbolrow3;
+    private int winningMultiplierBasedOnSymbolRow1;
+    private int winningMultiplierBasedOnSymbolRow2;
+    private int winningMultiplierBasedOnSymbolRow3;
+    private double winningMultiplierBasedOnSymbolRow1W2S;
+    private double winningMultiplierBasedOnSymbolRow2W2S;
+    private double winningMultiplierBasedOnSymbolRow3W2S;
     private int winningMultiplier;
 
 /*
@@ -50,9 +53,12 @@ public slotMath ()
     setRandomNum8();
     setRandomNum9();
     setRandomResultArray();
-    setWinningMultiplierBasedOnSymbolrow1();
-    setWinningMultiplierBasedOnSymbolrow2();
-    setWinningMultiplierBasedOnSymbolrow3();
+    setWinningMultiplierBasedOnSymbolRow1();
+    setWinningMultiplierBasedOnSymbolRow2();
+    setWinningMultiplierBasedOnSymbolRow3();
+    setWinningMultiplierBasedOnSymbolRow1W2S();
+    setWinningMultiplierBasedOnSymbolRow2W2S();
+    setWinningMultiplierBasedOnSymbolRow3W2S();
     setWinningMultiplier();
 
 
@@ -94,7 +100,7 @@ public slotMath ()
 
     public void setRandomResultArray()
     {
-        randomResultArray = new int[]{randomNum1, randomNum2, randomNum3, randomNum4, randomNum5, randomNum6, randomNum7, randomNum8, randomNum9};
+        randomResultArray = new int[]{randomNum1, randomNum2, randomNum3,randomNum4, randomNum5, randomNum6, randomNum7, randomNum8, randomNum9};
     }
 
     public int getRandomNum1() {return randomNum1;}
@@ -117,71 +123,110 @@ public slotMath ()
 
     public int[] getRandomResultArray() {return randomResultArray;}
 
-    public void setWinningMultiplierBasedOnSymbolrow1()
+    public void setWinningMultiplierBasedOnSymbolRow1()
     {
-        if (randomNum1 == 1){winningMultiplierBasedOnSymbolrow3 = 9;}
-        else if (randomNum1 == 2){winningMultiplierBasedOnSymbolrow1 = 12;}
-        else if (randomNum1 == 3){winningMultiplierBasedOnSymbolrow1 = 12;}
-        else if (randomNum1 == 4){winningMultiplierBasedOnSymbolrow1 = 15;}
-        else if (randomNum1 == 5){winningMultiplierBasedOnSymbolrow1 = 15;}
-        else if (randomNum1 == 6){winningMultiplierBasedOnSymbolrow1 = 18;}
-        else if (randomNum1 == 7){winningMultiplierBasedOnSymbolrow1 = 24;}
-        else if (randomNum1 == 8){winningMultiplierBasedOnSymbolrow1 = 30;}
+        if (randomNum1 == 1){winningMultiplierBasedOnSymbolRow1 = 9;}
+        else if (randomNum1 == 2){winningMultiplierBasedOnSymbolRow1 = 12;}
+        else if (randomNum1 == 3){winningMultiplierBasedOnSymbolRow1 = 12;}
+        else if (randomNum1 == 4){winningMultiplierBasedOnSymbolRow1 = 15;}
+        else if (randomNum1 == 5){winningMultiplierBasedOnSymbolRow1 = 15;}
+        else if (randomNum1 == 6){winningMultiplierBasedOnSymbolRow1 = 18;}
+        else if (randomNum1 == 7){winningMultiplierBasedOnSymbolRow1 = 24;}
+        else if (randomNum1 == 8){winningMultiplierBasedOnSymbolRow1 = 30;}
     }
-    public void setWinningMultiplierBasedOnSymbolrow2()
+    public void setWinningMultiplierBasedOnSymbolRow2()
     {
-        if (randomNum2 == 1){winningMultiplierBasedOnSymbolrow2 = 9;}
-        else if (randomNum2 == 2){winningMultiplierBasedOnSymbolrow2 = 12;}
-        else if (randomNum2 == 3){winningMultiplierBasedOnSymbolrow2 = 12;}
-        else if (randomNum2 == 4){winningMultiplierBasedOnSymbolrow2 = 15;}
-        else if (randomNum2 == 5){winningMultiplierBasedOnSymbolrow2 = 15;}
-        else if (randomNum2 == 6){winningMultiplierBasedOnSymbolrow2 = 18;}
-        else if (randomNum2 == 7){winningMultiplierBasedOnSymbolrow2 = 24;}
-        else if (randomNum3 == 8){winningMultiplierBasedOnSymbolrow2 = 30;}
+        if (randomNum2 == 1){winningMultiplierBasedOnSymbolRow2 = 9;}
+        else if (randomNum4 == 2){winningMultiplierBasedOnSymbolRow2 = 12;}
+        else if (randomNum4 == 3){winningMultiplierBasedOnSymbolRow2 = 12;}
+        else if (randomNum4 == 4){winningMultiplierBasedOnSymbolRow2 = 15;}
+        else if (randomNum4 == 5){winningMultiplierBasedOnSymbolRow2 = 15;}
+        else if (randomNum4 == 6){winningMultiplierBasedOnSymbolRow2 = 18;}
+        else if (randomNum4 == 7){winningMultiplierBasedOnSymbolRow2 = 24;}
+        else if (randomNum4 == 8){winningMultiplierBasedOnSymbolRow2 = 30;}
     }
-    public void setWinningMultiplierBasedOnSymbolrow3()
+    public void setWinningMultiplierBasedOnSymbolRow3()
     {
-        if (randomNum3 == 1){winningMultiplierBasedOnSymbolrow3= 9;}
-        else if (randomNum3 == 2){winningMultiplierBasedOnSymbolrow3 = 12;}
-        else if (randomNum3 == 3){winningMultiplierBasedOnSymbolrow3 = 12;}
-        else if (randomNum3 == 4){winningMultiplierBasedOnSymbolrow3 = 15;}
-        else if (randomNum3 == 5){winningMultiplierBasedOnSymbolrow3 = 15;}
-        else if (randomNum3 == 6){winningMultiplierBasedOnSymbolrow3 = 18;}
-        else if (randomNum3 == 7){winningMultiplierBasedOnSymbolrow3 = 24;}
-        else if (randomNum3 == 8){winningMultiplierBasedOnSymbolrow3 = 30;}
+        if (randomNum3 == 1){winningMultiplierBasedOnSymbolRow3= 9;}
+        else if (randomNum7 == 2){winningMultiplierBasedOnSymbolRow3 = 12;}
+        else if (randomNum7 == 3){winningMultiplierBasedOnSymbolRow3 = 12;}
+        else if (randomNum7 == 4){winningMultiplierBasedOnSymbolRow3 = 15;}
+        else if (randomNum7 == 5){winningMultiplierBasedOnSymbolRow3 = 15;}
+        else if (randomNum7 == 6){winningMultiplierBasedOnSymbolRow3 = 18;}
+        else if (randomNum7 == 7){winningMultiplierBasedOnSymbolRow3 = 24;}
+        else if (randomNum7 == 8){winningMultiplierBasedOnSymbolRow3 = 30;}
+    }
+    public void setWinningMultiplierBasedOnSymbolRow1W2S()
+    {
+        winningMultiplierBasedOnSymbolRow1W2S = winningMultiplierBasedOnSymbolRow1 * (1/6);
+    }
+
+    public void setWinningMultiplierBasedOnSymbolRow2W2S()
+    {
+        winningMultiplierBasedOnSymbolRow2W2S = winningMultiplierBasedOnSymbolRow2 * (1/6);
+    }
+
+    public void setWinningMultiplierBasedOnSymbolRow3W2S()
+    {
+        winningMultiplierBasedOnSymbolRow3W2S = winningMultiplierBasedOnSymbolRow3 * (1/6);
     }
 
     public void setWinningMultiplier ()
     {
-    if (randomNum1 == randomNum4 && randomNum1 == randomNum7)   /* ROW 1 =*/
+    if (randomNum1 == randomNum2 && randomNum1 == randomNum3)   /* ROW 1 =*/
     {
-        winningMultiplier = winningMultiplierBasedOnSymbolrow1;
+        winningMultiplier = winningMultiplierBasedOnSymbolRow1;
     }
-    else if (randomNum2 == randomNum5 && randomNum2 == randomNum8) /* ROW 2 =*/
+    else if (randomNum4 == randomNum5 && randomNum4 == randomNum6) /* ROW 2 =*/
     {
-        winningMultiplier = winningMultiplierBasedOnSymbolrow2;
+        winningMultiplier = winningMultiplierBasedOnSymbolRow2;
     }
-    else if (randomNum3 == randomNum6 && randomNum3 == randomNum9) /* ROW 3 =*/
+    else if (randomNum7 == randomNum8 && randomNum7 == randomNum9) /* ROW 3 =*/
     {
-        winningMultiplier = winningMultiplierBasedOnSymbolrow3;
+        winningMultiplier = winningMultiplierBasedOnSymbolRow3;
     }
-    else if (randomNum1 == randomNum4 && randomNum1 == randomNum7 && randomNum2 == randomNum5 && randomNum2 == randomNum8) /* ROW 1 = AND ROW 2 = */
+    else if (randomNum1 == randomNum2 && randomNum1 == randomNum3 && randomNum4 == randomNum5 && randomNum4 == randomNum6) /* ROW 1 = AND ROW 2 = */
+    {
+        winningMultiplier = winningMultiplierBasedOnSymbolRow1 * winningMultiplierBasedOnSymbolRow2;
+    }
+    else if (randomNum1 == randomNum2 && randomNum1 == randomNum3 && randomNum7 == randomNum8 && randomNum7 == randomNum9) /* ROW 1 = AND ROW 3 = */
+    {
+     winningMultiplier = winningMultiplierBasedOnSymbolRow1 * winningMultiplierBasedOnSymbolRow3;
+    }
+    else if (randomNum4 == randomNum5 && randomNum4 == randomNum6 && randomNum7 == randomNum8 && randomNum7 == randomNum9) /* ROW 2 = AND ROW 3 = */
+    {
+        winningMultiplier = winningMultiplierBasedOnSymbolRow2 * winningMultiplierBasedOnSymbolRow3;
+    }
+    else if (randomNum1 == randomNum2 && randomNum1 == randomNum3 && randomNum4 == randomNum5 && randomNum4 == randomNum6 && randomNum7 == randomNum8 && randomNum7 == randomNum9) /* ROW 1 = ROW 2 = ROW 3 = */
+    {
+        winningMultiplier = winningMultiplierBasedOnSymbolRow1 *winningMultiplierBasedOnSymbolRow2 * winningMultiplierBasedOnSymbolRow3;
+    }
+    
 
-    {
-        winningMultiplier = winningMultiplierBasedOnSymbolrow1 * winningMultiplierBasedOnSymbolrow2;
-    }
-    else if (randomNum1 == randomNum4 && randomNum1 == randomNum7 && randomNum3 == randomNum6 && randomNum3 == randomNum9) /* ROW 1 = AND ROW 3 = */
-    {
-     winningMultiplier = winningMultiplierBasedOnSymbolrow1 * winningMultiplierBasedOnSymbolrow3;
-    }
-    else if (randomNum2 == randomNum5 && randomNum2 == randomNum8 && randomNum3 == randomNum6 && randomNum3 == randomNum9) /* ROW 2 = AND ROW 3 = */
-    {
-        winningMultiplier = winningMultiplierBasedOnSymbolrow2 * winningMultiplierBasedOnSymbolrow3;
-    }
-    else if (randomNum1 == randomNum4 && randomNum1 == randomNum7 && randomNum2 == randomNum5 && randomNum2 == randomNum8 && randomNum3 == randomNum6 && randomNum3 == randomNum9) /* ROW 1 = ROW 2 = ROW 3 = */
-    {
-        winningMultiplier = winningMultiplierBasedOnSymbolrow1 *winningMultiplierBasedOnSymbolrow2 * winningMultiplierBasedOnSymbolrow3;
-    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 
     public int getWinningMultiplier()
