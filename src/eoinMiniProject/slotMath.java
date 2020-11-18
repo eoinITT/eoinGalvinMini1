@@ -147,7 +147,7 @@ public slotMath ()
     {
         row5 = new int[] {randomNum13,randomNum14,randomNum15};
     }
-
+/*
     public int getRandomNum1() {return randomNum1;}
 
     public int getRandomNum2() {return randomNum2;}
@@ -176,7 +176,7 @@ public slotMath ()
 
     public int getRandomNum14() {return randomNum5;}
 
-    public int getRandomNum15() {return randomNum6;}
+    public int getRandomNum15() {return randomNum6;} */
 
     public int[] getRow1() { return row1;}
 
@@ -258,6 +258,10 @@ public slotMath ()
 
     public void setWinningMultiplier ()
     {
+       /*
+       1 ROW WINS
+        */
+
         if (checkArrayEquals(row1)) {
             winningMultiplier = winningMultiplierBasedOnSymbolRow1;
         }
@@ -273,11 +277,129 @@ public slotMath ()
         if (checkArrayEquals(row5)) {
             winningMultiplier = winningMultiplierBasedOnSymbolRow5;
         }
+
+        /*
+        2 ROW WINS
+         */
+
         if (checkArrayEquals(row1) && checkArrayEquals(row2))
         {
-         //* start coding from here tommorow using if sheet */
+         winningMultiplier = winningMultiplierBasedOnSymbolRow1 * winningMultiplierBasedOnSymbolRow2;
+        }
+        if (checkArrayEquals(row1) && checkArrayEquals(row3))
+        {
+            winningMultiplier = winningMultiplierBasedOnSymbolRow1 * winningMultiplierBasedOnSymbolRow3;
+        }
+        if (checkArrayEquals(row1) && checkArrayEquals(row4))
+        {
+            winningMultiplier = winningMultiplierBasedOnSymbolRow1 * winningMultiplierBasedOnSymbolRow4;
+        }
+        if (checkArrayEquals(row1) && checkArrayEquals(row5))
+        {
+            winningMultiplier = winningMultiplierBasedOnSymbolRow1 * winningMultiplierBasedOnSymbolRow5;
+        }
+        if (checkArrayEquals(row2) && checkArrayEquals(row3))
+        {
+            winningMultiplier = winningMultiplierBasedOnSymbolRow2 * winningMultiplierBasedOnSymbolRow5;
+        }
+        if (checkArrayEquals(row2) && checkArrayEquals(row4))
+        {
+          winningMultiplier = winningMultiplierBasedOnSymbolRow2 * winningMultiplierBasedOnSymbolRow4;
+        }
+        if (checkArrayEquals(row2) && checkArrayEquals(row5))
+        {
+            winningMultiplier = winningMultiplierBasedOnSymbolRow2 * winningMultiplierBasedOnSymbolRow5;
+        }
+        if (checkArrayEquals(row3) && checkArrayEquals(row4))
+        {
+            winningMultiplier = winningMultiplierBasedOnSymbolRow3 * winningMultiplierBasedOnSymbolRow4;
+        }
+        if (checkArrayEquals(row3) && checkArrayEquals(row5))
+        {
+            winningMultiplier = winningMultiplierBasedOnSymbolRow3 * winningMultiplierBasedOnSymbolRow5;
+        }
+        if( checkArrayEquals(row4) && checkArrayEquals(row5))
+        {
+            winningMultiplier = winningMultiplierBasedOnSymbolRow4 * winningMultiplierBasedOnSymbolRow5;
+        }
+        /*
+        3 ROW WINS
+         */
+
+        if (checkArrayEquals(row1) && checkArrayEquals(row2) && checkArrayEquals(row3))
+        {
+            winningMultiplier = winningMultiplierBasedOnSymbolRow1 * winningMultiplierBasedOnSymbolRow2 * winningMultiplierBasedOnSymbolRow3;
+        }
+        if (checkArrayEquals(row1) && checkArrayEquals(row2) && checkArrayEquals(row4))
+        {
+            winningMultiplier = winningMultiplierBasedOnSymbolRow1 * winningMultiplierBasedOnSymbolRow2 * winningMultiplierBasedOnSymbolRow4;
+        }
+        if (checkArrayEquals(row1) && checkArrayEquals(row2) && checkArrayEquals(row5))
+        {
+            winningMultiplier = winningMultiplierBasedOnSymbolRow1 * winningMultiplierBasedOnSymbolRow2 * winningMultiplierBasedOnSymbolRow5;
+        }
+        if (checkArrayEquals(row1) && checkArrayEquals(row3) && checkArrayEquals(row4))
+        {
+            winningMultiplier = winningMultiplierBasedOnSymbolRow1 * winningMultiplierBasedOnSymbolRow3 * winningMultiplierBasedOnSymbolRow4;
+        }
+        if (checkArrayEquals(row1) && checkArrayEquals(row3) && checkArrayEquals(row5))
+        {
+            winningMultiplier = winningMultiplierBasedOnSymbolRow1 * winningMultiplierBasedOnSymbolRow3 * winningMultiplierBasedOnSymbolRow5;
+        }
+        if (checkArrayEquals(row1) && checkArrayEquals(row4) && checkArrayEquals(row5))
+        {
+            winningMultiplier = winningMultiplierBasedOnSymbolRow1 * winningMultiplierBasedOnSymbolRow4 * winningMultiplierBasedOnSymbolRow5;
+        }
+        if (checkArrayEquals(row2) && checkArrayEquals(row3) && checkArrayEquals(row4))
+        {
+            winningMultiplier = winningMultiplierBasedOnSymbolRow2 * winningMultiplierBasedOnSymbolRow3 * winningMultiplierBasedOnSymbolRow4;
+        }
+        if (checkArrayEquals(row2) && checkArrayEquals(row3) && checkArrayEquals(row5))
+        {
+            winningMultiplier = winningMultiplierBasedOnSymbolRow2 * winningMultiplierBasedOnSymbolRow3 * winningMultiplierBasedOnSymbolRow5;
+        }
+        if (checkArrayEquals(row2) && checkArrayEquals(row4) && checkArrayEquals(row5))
+        {
+            winningMultiplier = winningMultiplierBasedOnSymbolRow2 * winningMultiplierBasedOnSymbolRow4 * winningMultiplierBasedOnSymbolRow5;
+        }
+        if (checkArrayEquals(row3) && checkArrayEquals(row4) && checkArrayEquals(row5))
+        {
+            winningMultiplier = winningMultiplierBasedOnSymbolRow3 * winningMultiplierBasedOnSymbolRow4 * winningMultiplierBasedOnSymbolRow5;
+        }
+
+        /*
+        4 ROW WINS
+         */
+
+        if (checkArrayEquals(row1) && checkArrayEquals(row2) && checkArrayEquals(row3) && checkArrayEquals(row4))
+        {
+            winningMultiplier = winningMultiplierBasedOnSymbolRow1 * winningMultiplierBasedOnSymbolRow2 * winningMultiplierBasedOnSymbolRow3 * winningMultiplierBasedOnSymbolRow4;
+        }
+        if (checkArrayEquals(row1) && checkArrayEquals(row2) && checkArrayEquals(row3) && checkArrayEquals(row5))
+        {
+            winningMultiplier = winningMultiplierBasedOnSymbolRow1 * winningMultiplierBasedOnSymbolRow2 * winningMultiplierBasedOnSymbolRow3 * winningMultiplierBasedOnSymbolRow5;
+        }
+        if (checkArrayEquals(row1) && checkArrayEquals(row2) && checkArrayEquals(row4) && checkArrayEquals(row5))
+        {
+            winningMultiplier = winningMultiplierBasedOnSymbolRow1 * winningMultiplierBasedOnSymbolRow2 * winningMultiplierBasedOnSymbolRow4 * winningMultiplierBasedOnSymbolRow5;
+        }
+        if (checkArrayEquals(row1) && checkArrayEquals(row3) && checkArrayEquals(row4) && checkArrayEquals(row5))
+        {
+            winningMultiplier = winningMultiplierBasedOnSymbolRow1 * winningMultiplierBasedOnSymbolRow3 * winningMultiplierBasedOnSymbolRow4 * winningMultiplierBasedOnSymbolRow5;
+        }
+        if (checkArrayEquals(row2) && checkArrayEquals(row3) && checkArrayEquals(row4) && checkArrayEquals(row5))
+        {
+            winningMultiplier = winningMultiplierBasedOnSymbolRow2 * winningMultiplierBasedOnSymbolRow3 * winningMultiplierBasedOnSymbolRow4 * winningMultiplierBasedOnSymbolRow5;
+        }
+        /*
+        5 ROW WIN
+         */
+        if (checkArrayEquals(row1) && checkArrayEquals(row2) && checkArrayEquals(row3) && checkArrayEquals(row4) && checkArrayEquals(row5))
+        {
+            winningMultiplier = winningMultiplierBasedOnSymbolRow1 * winningMultiplierBasedOnSymbolRow2 * winningMultiplierBasedOnSymbolRow3 * winningMultiplierBasedOnSymbolRow4 * winningMultiplierBasedOnSymbolRow5;
         }
     }
+
 
     public double getWinningMultiplier()
     {
