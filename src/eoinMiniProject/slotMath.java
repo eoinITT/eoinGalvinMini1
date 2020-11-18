@@ -10,14 +10,25 @@ public class slotMath {
     private int randomNum7;
     private int randomNum8;
     private int randomNum9;
-    private int[] randomResultArray;
-    private int winningMultiplierBasedOnSymbolRow1;
-    private int winningMultiplierBasedOnSymbolRow2;
-    private int winningMultiplierBasedOnSymbolRow3;
-    private double winningMultiplierBasedOnSymbolRow1W2S;
-    private double winningMultiplierBasedOnSymbolRow2W2S;
-    private double winningMultiplierBasedOnSymbolRow3W2S;
-    private int winningMultiplier;
+    private int randomNum10;
+    private int randomNum11;
+    private int randomNum12;
+    private int randomNum13;
+    private int randomNum14;
+    private int randomNum15;
+    private int[] row1;
+    private int[] row2;
+    private int[] row3;
+    private int[] row4;
+    private int[] row5;
+
+
+    private double winningMultiplierBasedOnSymbolRow1;
+    private double winningMultiplierBasedOnSymbolRow2;
+    private double winningMultiplierBasedOnSymbolRow3;
+    private double winningMultiplierBasedOnSymbolRow4;
+    private double winningMultiplierBasedOnSymbolRow5;
+    private double winningMultiplier;
 
 /*
     0 - 12.5 = 1 (apple) 3 in a row = 9x multiplier of bet
@@ -28,16 +39,6 @@ public class slotMath {
     62.5 - 75 = 6 (watermelon) 3 in a row = 18x multiplier of bet
     75 - 87.5 = 7 (orange) 3 in a row = 24x multiplier of bet
     87.5 - 100 = 8 (BAR) 3 in a row = 30x multiplier of bet
-
-    How to win: if num 1,4,7 are all the same (multiplier based on symbol)
-                if num 2,5,8 are all the same (multiplier based on symbol)
-                if num 3,6,9 are all the same (multiplier based on symbol)
-
-                if num 1,4,7 are all the same and 2,5,8 are also the same. (multiplier of 2 symbols are multi together. eg: 12x x 24x x 36x)
-                if num 1,4,7 are all the same and 3,6,9 are also the same. (multiplier of 2 symbols are multi together.)
-                if num 2,5,8 are all the same and 3,6,9 are all the same.  (multiplier of 2 symbols are multi together.)
-
-                if 1,4,7 are all the same, 2,5,8 are all the same and 3,6,9 are all the same. (multiplier of all 3 symbols are multi together. eg: 12x x 24x x 24x)
 
     */
 
@@ -52,14 +53,26 @@ public slotMath ()
     setRandomNum7();
     setRandomNum8();
     setRandomNum9();
-    setRandomResultArray();
+    setRandomNum10();
+    setRandomNum11();
+    setRandomNum12();
+    setRandomNum13();
+    setRandomNum14();
+    setRandomNum15();
+    setRow1();
+    setRow2();
+    setRow3();
+    setRow4();
+    setRow5();
     setWinningMultiplierBasedOnSymbolRow1();
     setWinningMultiplierBasedOnSymbolRow2();
     setWinningMultiplierBasedOnSymbolRow3();
-    setWinningMultiplierBasedOnSymbolRow1W2S();
-    setWinningMultiplierBasedOnSymbolRow2W2S();
-    setWinningMultiplierBasedOnSymbolRow3W2S();
+    setWinningMultiplierBasedOnSymbolRow4();
+    setWinningMultiplierBasedOnSymbolRow5();
     setWinningMultiplier();
+
+
+
 
 
 }
@@ -98,9 +111,41 @@ public slotMath ()
 
     public void setRandomNum9() {randomNum9 = returnRandom();}
 
-    public void setRandomResultArray()
+    public void setRandomNum10() {randomNum10 = returnRandom();}
+
+    public void setRandomNum11() {randomNum11 = returnRandom();}
+
+    public void setRandomNum12() {randomNum12 = returnRandom();}
+
+    public void setRandomNum13() {randomNum13 = returnRandom();}
+
+    public void setRandomNum14() {randomNum14 = returnRandom();}
+
+    public void setRandomNum15() {randomNum15 = returnRandom();}
+
+    public void setRow1()
     {
-        randomResultArray = new int[]{randomNum1, randomNum2, randomNum3,randomNum4, randomNum5, randomNum6, randomNum7, randomNum8, randomNum9};
+       row1 = new int[] {randomNum1,randomNum2,randomNum3};
+    }
+
+    public void setRow2()
+    {
+        row2 = new int[] {randomNum4,randomNum5,randomNum6};
+    }
+
+    public void setRow3()
+    {
+        row3 = new int[] {randomNum7,randomNum8,randomNum9};
+    }
+
+    public void setRow4()
+    {
+        row4 = new int[] {randomNum10,randomNum11,randomNum12};
+    }
+
+    public void setRow5()
+    {
+        row5 = new int[] {randomNum13,randomNum14,randomNum15};
     }
 
     public int getRandomNum1() {return randomNum1;}
@@ -121,11 +166,31 @@ public slotMath ()
 
     public int getRandomNum9() {return randomNum9;}
 
-    public int[] getRandomResultArray() {return randomResultArray;}
+    public int getRandomNum10() {return randomNum1;}
+
+    public int getRandomNum11() {return randomNum2;}
+
+    public int getRandomNum12() {return randomNum3;}
+
+    public int getRandomNum13() {return randomNum4;}
+
+    public int getRandomNum14() {return randomNum5;}
+
+    public int getRandomNum15() {return randomNum6;}
+
+    public int[] getRow1() { return row1;}
+
+    public int[] getRow2() {return row2;}
+
+    public int[] getRow3() {return row3;}
+
+    public int[] getRow4() {return row4;}
+
+    public int[] getRow5() {return row5;}
 
     public void setWinningMultiplierBasedOnSymbolRow1()
     {
-        if (randomNum1 == 1){winningMultiplierBasedOnSymbolRow1 = 9;}
+             if (randomNum1 == 1){winningMultiplierBasedOnSymbolRow1 = 9;}
         else if (randomNum1 == 2){winningMultiplierBasedOnSymbolRow1 = 12;}
         else if (randomNum1 == 3){winningMultiplierBasedOnSymbolRow1 = 12;}
         else if (randomNum1 == 4){winningMultiplierBasedOnSymbolRow1 = 15;}
@@ -136,7 +201,7 @@ public slotMath ()
     }
     public void setWinningMultiplierBasedOnSymbolRow2()
     {
-        if (randomNum2 == 1){winningMultiplierBasedOnSymbolRow2 = 9;}
+             if (randomNum4 == 1){winningMultiplierBasedOnSymbolRow2 = 9;}
         else if (randomNum4 == 2){winningMultiplierBasedOnSymbolRow2 = 12;}
         else if (randomNum4 == 3){winningMultiplierBasedOnSymbolRow2 = 12;}
         else if (randomNum4 == 4){winningMultiplierBasedOnSymbolRow2 = 15;}
@@ -147,7 +212,7 @@ public slotMath ()
     }
     public void setWinningMultiplierBasedOnSymbolRow3()
     {
-        if (randomNum3 == 1){winningMultiplierBasedOnSymbolRow3= 9;}
+             if (randomNum7 == 1){winningMultiplierBasedOnSymbolRow3 = 9;}
         else if (randomNum7 == 2){winningMultiplierBasedOnSymbolRow3 = 12;}
         else if (randomNum7 == 3){winningMultiplierBasedOnSymbolRow3 = 12;}
         else if (randomNum7 == 4){winningMultiplierBasedOnSymbolRow3 = 15;}
@@ -156,80 +221,65 @@ public slotMath ()
         else if (randomNum7 == 7){winningMultiplierBasedOnSymbolRow3 = 24;}
         else if (randomNum7 == 8){winningMultiplierBasedOnSymbolRow3 = 30;}
     }
-    public void setWinningMultiplierBasedOnSymbolRow1W2S()
+    public void setWinningMultiplierBasedOnSymbolRow4()
     {
-        winningMultiplierBasedOnSymbolRow1W2S = winningMultiplierBasedOnSymbolRow1 * (1/6);
+             if (randomNum10 == 1){winningMultiplierBasedOnSymbolRow4 = 9;}
+        else if (randomNum10 == 2){winningMultiplierBasedOnSymbolRow4 = 12;}
+        else if (randomNum10 == 3){winningMultiplierBasedOnSymbolRow4 = 12;}
+        else if (randomNum10 == 4){winningMultiplierBasedOnSymbolRow4 = 15;}
+        else if (randomNum10 == 5){winningMultiplierBasedOnSymbolRow4 = 15;}
+        else if (randomNum10 == 6){winningMultiplierBasedOnSymbolRow4 = 18;}
+        else if (randomNum10 == 7){winningMultiplierBasedOnSymbolRow4 = 24;}
+        else if (randomNum10 == 8){winningMultiplierBasedOnSymbolRow4 = 30;}
+    }
+    public void setWinningMultiplierBasedOnSymbolRow5()
+    {
+             if (randomNum13 == 1){winningMultiplierBasedOnSymbolRow5 = 9;}
+        else if (randomNum13 == 2){winningMultiplierBasedOnSymbolRow5 = 12;}
+        else if (randomNum13 == 3){winningMultiplierBasedOnSymbolRow5 = 12;}
+        else if (randomNum13 == 4){winningMultiplierBasedOnSymbolRow5 = 15;}
+        else if (randomNum13 == 5){winningMultiplierBasedOnSymbolRow5 = 15;}
+        else if (randomNum13 == 6){winningMultiplierBasedOnSymbolRow5 = 18;}
+        else if (randomNum13 == 7){winningMultiplierBasedOnSymbolRow5 = 24;}
+        else if (randomNum13 == 8){winningMultiplierBasedOnSymbolRow5 = 30;}
     }
 
-    public void setWinningMultiplierBasedOnSymbolRow2W2S()
+    public static boolean checkArrayEquals (int[] selectedrow) /* DONT FORGET TO REFERENCE STACKOVERFLOW */
     {
-        winningMultiplierBasedOnSymbolRow2W2S = winningMultiplierBasedOnSymbolRow2 * (1/6);
-    }
-
-    public void setWinningMultiplierBasedOnSymbolRow3W2S()
-    {
-        winningMultiplierBasedOnSymbolRow3W2S = winningMultiplierBasedOnSymbolRow3 * (1/6);
+        for(int i=1; i<selectedrow.length;i++)
+        {
+            if(selectedrow[0] != selectedrow[i])
+            {
+                return false;
+            }
+        }
+                return true;
     }
 
     public void setWinningMultiplier ()
     {
-    if (randomNum1 == randomNum2 && randomNum1 == randomNum3)   /* ROW 1 =*/
-    {
-        winningMultiplier = winningMultiplierBasedOnSymbolRow1;
-    }
-    else if (randomNum4 == randomNum5 && randomNum4 == randomNum6) /* ROW 2 =*/
-    {
-        winningMultiplier = winningMultiplierBasedOnSymbolRow2;
-    }
-    else if (randomNum7 == randomNum8 && randomNum7 == randomNum9) /* ROW 3 =*/
-    {
-        winningMultiplier = winningMultiplierBasedOnSymbolRow3;
-    }
-    else if (randomNum1 == randomNum2 && randomNum1 == randomNum3 && randomNum4 == randomNum5 && randomNum4 == randomNum6) /* ROW 1 = AND ROW 2 = */
-    {
-        winningMultiplier = winningMultiplierBasedOnSymbolRow1 * winningMultiplierBasedOnSymbolRow2;
-    }
-    else if (randomNum1 == randomNum2 && randomNum1 == randomNum3 && randomNum7 == randomNum8 && randomNum7 == randomNum9) /* ROW 1 = AND ROW 3 = */
-    {
-     winningMultiplier = winningMultiplierBasedOnSymbolRow1 * winningMultiplierBasedOnSymbolRow3;
-    }
-    else if (randomNum4 == randomNum5 && randomNum4 == randomNum6 && randomNum7 == randomNum8 && randomNum7 == randomNum9) /* ROW 2 = AND ROW 3 = */
-    {
-        winningMultiplier = winningMultiplierBasedOnSymbolRow2 * winningMultiplierBasedOnSymbolRow3;
-    }
-    else if (randomNum1 == randomNum2 && randomNum1 == randomNum3 && randomNum4 == randomNum5 && randomNum4 == randomNum6 && randomNum7 == randomNum8 && randomNum7 == randomNum9) /* ROW 1 = ROW 2 = ROW 3 = */
-    {
-        winningMultiplier = winningMultiplierBasedOnSymbolRow1 *winningMultiplierBasedOnSymbolRow2 * winningMultiplierBasedOnSymbolRow3;
-    }
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        if (checkArrayEquals(row1)) {
+            winningMultiplier = winningMultiplierBasedOnSymbolRow1;
+        }
+        if (checkArrayEquals(row2)) {
+            winningMultiplier = winningMultiplierBasedOnSymbolRow2;
+        }
+        if (checkArrayEquals(row3)) {
+            winningMultiplier = winningMultiplierBasedOnSymbolRow3;
+        }
+        if (checkArrayEquals(row4)) {
+            winningMultiplier = winningMultiplierBasedOnSymbolRow4;
+        }
+        if (checkArrayEquals(row5)) {
+            winningMultiplier = winningMultiplierBasedOnSymbolRow5;
+        }
+        if (checkArrayEquals(row1) && checkArrayEquals(row2))
+        {
+         //* start coding from here tommorow using if sheet */
+        }
     }
 
-    public int getWinningMultiplier()
+    public double getWinningMultiplier()
     {
         return winningMultiplier;
     }
