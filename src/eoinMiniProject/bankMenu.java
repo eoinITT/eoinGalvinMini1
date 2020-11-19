@@ -7,53 +7,40 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class bankMenu {
-    private JFrame frame;
-    private JPanel panel1;
-    private JButton depositButton;
-    private JButton withdrawButton;
-    private JButton backButton;
+    private JFrame bankFrame;
+    private JPanel bankPanel;
     private String depositAmountAsString;
     private int depositAmount;
     private String withdrawAmountAsString;
     private int withdrawAmount;
-    private double balance;
+    public double balance;
+
+    
 
     public bankMenu()
     {
-        createFrame();
-        frame.add(panel1);
-        frame.setVisible(true);
-        createWithdrawFrame();
-        addButtons();
-        addWithdrawButtons();
-    }
-
-    public void createFrame()
-    {
-        frame = new JFrame();
-            frame.setTitle("Bank Menu");
-            frame.setVisible(true);
-            frame.setSize(400,400);
-            frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-
-            panel1 = new JPanel();
-            panel1.setBackground(Color.cyan);
-    }
-    public void createWithdrawFrame()
-    {
-        frame = new JFrame();
-        frame.setTitle("Withdraw Menu");
-        frame.setVisible(true);
-        frame.setSize(400,400);
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-
-        panel1 = new JPanel();
-        panel1.setBackground(Color.red);
+        createBankFrame();
+        bankFrame.add(bankPanel);
+        bankFrame.setVisible(true);
+        addBankButtons();
 
     }
-    public void addButtons()
+
+    public void createBankFrame()
     {
-        depositButton = new JButton("Deposit");
+        bankFrame = new JFrame();
+        bankFrame.setTitle("Bank Menu");
+        bankFrame.setVisible(true);
+        bankFrame.setSize(400,400);
+        bankFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
+        bankPanel = new JPanel();
+        bankPanel.setBackground(Color.white);
+    }
+
+    public void addBankButtons()
+    {
+        JButton depositButton = new JButton("Deposit");
         depositButton.setSize(100,30);
         depositButton.setLocation(0,0);
         depositButton.setBackground(Color.green);
@@ -85,9 +72,9 @@ public class bankMenu {
 
             }
         });
-        panel1.add(depositButton);
+        bankPanel.add(depositButton);
 
-        withdrawButton = new JButton("Withdraw");
+        JButton withdrawButton = new JButton("Withdraw");
         withdrawButton.setSize(100,30);
         withdrawButton.setLocation(130,0);
         withdrawButton.setBackground(Color.red);
@@ -97,12 +84,12 @@ public class bankMenu {
             @Override
             public void actionPerformed(ActionEvent e)
             {
-
+                /* ADD WITHDRAW J HERE */
             }
         });
-        panel1.add(withdrawButton);
+        bankPanel.add(withdrawButton);
 
-        backButton = new JButton("Return");
+        JButton backButton = new JButton("Return");
         backButton.setSize(100,30);
         backButton.setLocation(260,0);
         backButton.setBackground(Color.white);
@@ -111,18 +98,14 @@ public class bankMenu {
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                /* RETURN TO THE BANK MENU MAIN */
+                bankFrame.dispose();
+                mainMenu m1 = new mainMenu();
             }
         });
-        panel1.add(backButton);
+        bankPanel.add(backButton);
     }
 
-    public void addWithdrawButtons()
-    {
-      JLabel balanceLabel = new JLabel("Balance:");
 
-
-    }
 
 
 
