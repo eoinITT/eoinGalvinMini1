@@ -12,8 +12,6 @@ public class mainMenu
     private JPanel mainPanel;
 
 
-
-
 public mainMenu()
 {
   createMainFrame();
@@ -48,6 +46,7 @@ public void addMainButtons()
         {
             mainFrame.dispose();
             bankMenu b1 = new bankMenu();
+            b1.displayBankMenu();
         }
     });
     mainPanel.add(BankButton);
@@ -62,25 +61,7 @@ public void addMainButtons()
         @Override
         public void actionPerformed(ActionEvent e)
         {
-            slotMath s1 = new slotMath();
-
-            if (s1.getWinningMultiplier() > 0)
-            {
-                System.out.println(
-                        "The numbers displayed in order: \n"
-                                + Arrays.toString(s1.getRow1()) + "\n"
-                                + Arrays.toString(s1.getRow2()) + "\n"
-                                + Arrays.toString(s1.getRow3()) + "\n"
-                                + Arrays.toString(s1.getRow4()) + "\n"
-                                + Arrays.toString(s1.getRow5())
-                );
-
-                System.out.println("The winning multiplier is " + s1.getWinningMultiplier());
-
-
-            }
-            else System.out.println("YOU LOSE");
-
+            gameMenu g1 = new gameMenu();
         }
     });
     mainPanel.add(playButton);
