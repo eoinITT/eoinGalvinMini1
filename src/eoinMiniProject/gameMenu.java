@@ -185,7 +185,25 @@ public class gameMenu
 
         gamePanel.add(returnToMain);
 
+        JButton goToBank = new JButton("Bank");
+        goToBank.setVisible(true);
+        goToBank.setSize(100,50);
+        goToBank.setLocation(1050,1);
+        goToBank.setBackground(new Color(59,89,182));
+        goToBank.setForeground(Color.white);
+        goToBank.setFont(new Font("Tahoma", Font.BOLD, 12));
 
+        goToBank.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                gameFrame.dispose();
+                bankMenu b1 = new bankMenu();
+                b1.displayBankMenu();
+            }
+        });
+
+        gamePanel.add(goToBank);
     }
 
     public void addGameFrameImages()
