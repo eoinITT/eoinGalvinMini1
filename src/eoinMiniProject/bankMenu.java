@@ -142,10 +142,10 @@ public class bankMenu
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                bankFrame.dispose();
                 mainMenu m1 = new mainMenu();
-                m1.displayMainMenu();
                 m1.setBalanceAfterBank();
+                m1.displayMainMenu();
+                bankFrame.dispose();
             }
         });
         bankPanel.add(backButton);

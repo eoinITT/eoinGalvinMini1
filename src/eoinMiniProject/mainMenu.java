@@ -26,6 +26,7 @@ public class mainMenu
         mainFrame.add(mainPanel);
         mainFrame.setVisible(true);
         addMainButtons();
+
     }
     public void createMainFrame()
     {
@@ -45,7 +46,7 @@ public class mainMenu
         JButton BankButton = new JButton("Bank");
         BankButton.setSize(100,30);
         BankButton.setLocation(0,0);
-        BankButton.setBackground(Color.green);
+        BankButton.setBackground(new Color(59,89,182));
 
         BankButton.addActionListener(new ActionListener()
         {
@@ -62,7 +63,7 @@ public class mainMenu
         JButton playButton = new JButton("Play");
         playButton.setSize(100,30);
         playButton.setLocation(130,0);
-        playButton.setBackground(Color.red);
+        playButton.setBackground(new Color(59,89,182));
         playButton.addActionListener(new ActionListener()
         {
 
@@ -88,7 +89,7 @@ public class mainMenu
         JButton exitButton = new JButton("Exit");
         exitButton.setSize(100,30);
         exitButton.setLocation(260,0);
-        exitButton.setBackground(Color.white);
+        exitButton.setBackground(new Color(59,89,182));
         exitButton.addActionListener(new ActionListener()
         {
             @Override
