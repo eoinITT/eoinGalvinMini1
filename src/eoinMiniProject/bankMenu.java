@@ -1,33 +1,39 @@
 package eoinMiniProject;
 
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class bankMenu {
+
+public class bankMenu
+{
     private JFrame bankFrame;
     private JPanel bankPanel;
     private String depositAmountAsString;
     private int depositAmount;
     private String withdrawAmountAsString;
     private int withdrawAmount;
-    private double balance;
-
-
-    
+    private double bankMenuBalance;
 
     public bankMenu()
     {
-
+        setBankMenuBalance();
     }
-    public void displayBankMenu()
+
+    public void updateBalanceAfterDeposit(double depositAmount)
     {
-        createBankFrame();
-        bankFrame.add(bankPanel);
-        bankFrame.setVisible(true);
-        addBankButtons();
+        bankMenuBalance = bankMenuBalance + depositAmount;
+    }
+    public void updateBalanceAfterWithdrawal(double withdrawAmount)
+    {
+        bankMenuBalance = bankMenuBalance - withdrawAmount;
+    }
+
+    public void setBankMenuBalance()
+    {
+        mainMenu m1 = new mainMenu();
+        bankMenuBalance = m1.getBalance();
     }
 
     public void createBankFrame()
@@ -40,6 +46,21 @@ public class bankMenu {
 
         bankPanel = new JPanel();
         bankPanel.setBackground(Color.white);
+    }
+
+
+
+    public void displayBankMenu()
+    {
+        createBankFrame();
+        bankFrame.add(bankPanel);
+        bankFrame.setVisible(true);
+        addBankButtons();
+    }
+
+    public double getBankMenuBalance()
+    {
+        return bankMenuBalance;
     }
 
     public void addBankButtons()
@@ -56,8 +77,8 @@ public class bankMenu {
             {
                 while (depositAmount <= 0 || depositAmount > 1000)
                 {
-                depositAmountAsString = JOptionPane.showInputDialog("Enter the amount you wish to deposit: ");
-                depositAmount = Integer.parseInt(depositAmountAsString);
+                    depositAmountAsString = JOptionPane.showInputDialog("Enter the amount you wish to deposit: ");
+                    depositAmount = Integer.parseInt(depositAmountAsString);
 
 
                     if (depositAmount > 1000) {
@@ -67,14 +88,16 @@ public class bankMenu {
                     if (depositAmount < 0) {
                         JOptionPane.showMessageDialog(null, "Please enter a positive number");
                     }
-                }
-                if (depositAmount > 0 && depositAmount <= 1000)
-                {
-                    JOptionPane.showMessageDialog(null, "You have deposited " + depositAmountAsString + " Euros");
-                    updateBalanceAfterDeposit(Double.parseDouble(depositAmountAsString));
-                }
 
-
+                    else {
+                        JOptionPane.showMessageDialog(null, "You have deposited " + depositAmountAsString + " Euros");
+                        updateBalanceAfterDeposit(Double.parseDouble(depositAmountAsString));
+                        bankFrame.dispose();
+                        displayBankMenu();
+                    }
+                }
+                mainMenu m1 = new mainMenu();
+                m1.setBalanceAfterBank();
             }
         });
         bankPanel.add(depositButton);
@@ -87,27 +110,25 @@ public class bankMenu {
         {
 
             @Override
-            public void actionPerformed(ActionEvent e) {
-
-                while (withdrawAmount > 0 || withdrawAmount <= balance)
-                {
-                    withdrawAmountAsString = JOptionPane.showInputDialog("Enter the amount you wish to Withdraw: ");
-                    withdrawAmount = Integer.parseInt(withdrawAmountAsString);
+            public void actionPerformed(ActionEvent e)
+            {
+                withdrawAmountAsString = JOptionPane.showInputDialog("Enter the amount you wish to Withdraw: ");
+                withdrawAmount = Integer.parseInt(withdrawAmountAsString);
 
 
-                    if (withdrawAmount > balance) {
-                        JOptionPane.showMessageDialog(null, "You cannot withdraw more than " + balance);
-
-                    }
-
+                if (withdrawAmount > bankMenuBalance) {
+                    JOptionPane.showMessageDialog(null, "You cannot withdraw more than " + bankMenuBalance);
                 }
 
-                if (withdrawAmount > 0 && withdrawAmount <= balance)
+                if (withdrawAmount > 0 && withdrawAmount <= bankMenuBalance)
                 {
                     JOptionPane.showMessageDialog(null, "You have withdrawn " + withdrawAmountAsString + " Euros");
                     updateBalanceAfterWithdrawal(Double.parseDouble(withdrawAmountAsString));
+                    bankFrame.dispose();
+                    displayBankMenu();
                 }
-
+                mainMenu m1 = new mainMenu();
+                m1.setBalanceAfterBank();
             }
         });
         bankPanel.add(withdrawButton);
@@ -123,37 +144,31 @@ public class bankMenu {
             {
                 bankFrame.dispose();
                 mainMenu m1 = new mainMenu();
+                m1.displayMainMenu();
+                m1.setBalanceAfterBank();
             }
         });
         bankPanel.add(backButton);
 
-    }
-    public void setBalance(double balance)
-    {
-        this.balance = balance;
+        JLabel bankBalance = new JLabel("your current balance is " +bankMenuBalance);
+        bankBalance.setVisible(true);
+        bankPanel.add(bankBalance);
+
+
+
     }
 
 
-    public void updateBalanceAfterBet(double betAmount)
-    {
-        balance = balance - betAmount;
-    }
-    public void updateBalanceAfterWin(double betAmount,double winningMultiplier)
-    {
-        balance = balance + (betAmount * winningMultiplier);
-    }
-    public void updateBalanceAfterDeposit(double depositAmount)
-    {
-        balance = balance + depositAmount;
-    }
-    public void updateBalanceAfterWithdrawal(double withdrawAmount)
-    {
-        balance = balance - withdrawAmount;
-    }
 
-    public double getBalance()
-    {
-        return balance;
-    }
+
+
+
+
+
+
+
+
+
+
 }
 

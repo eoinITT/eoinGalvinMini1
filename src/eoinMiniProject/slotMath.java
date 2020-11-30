@@ -147,7 +147,7 @@ public slotMath ()
     {
         row5 = new int[] {randomNum13,randomNum14,randomNum15};
     }
-/*
+
     public int getRandomNum1() {return randomNum1;}
 
     public int getRandomNum2() {return randomNum2;}
@@ -176,7 +176,7 @@ public slotMath ()
 
     public int getRandomNum14() {return randomNum5;}
 
-    public int getRandomNum15() {return randomNum6;} */
+    public int getRandomNum15() {return randomNum6;}
 
     public int[] getRow1() { return row1;}
 
@@ -244,7 +244,7 @@ public slotMath ()
         else if (randomNum13 == 8){winningMultiplierBasedOnSymbolRow5 = 30;}
     }
 
-    public static boolean checkArrayEquals (int[] selectedrow) /* DONT FORGET TO REFERENCE STACKOVERFLOW */
+    public static boolean checkArrayEquals (int[] selectedrow)
     {
         for(int i=1; i<selectedrow.length;i++)
         {
@@ -401,10 +401,9 @@ public slotMath ()
     }
 
 
-    public double getWinningMultiplier()
-    {
+    public double getWinningMultiplier() {
         return winningMultiplier;
-    }
 
+    }
 }
 
