@@ -226,29 +226,37 @@ public class gameMenu
 
         double betWin = betAmount * s1.getWinningMultiplier();
 
-        if (s1.getWinningMultiplier() > 0)
+        if(betAmount <= gameMenuBalance)
         {
-            System.out.println(
-                    "The numbers displayed in order: \n"
-                            + Arrays.toString(s1.getRow1()) + "\n"
-                            + Arrays.toString(s1.getRow2()) + "\n"
-                            + Arrays.toString(s1.getRow3()) + "\n"
-                            + Arrays.toString(s1.getRow4()) + "\n"
-                            + Arrays.toString(s1.getRow5())
-            );
 
-            System.out.println("The winning multiplier is " + s1.getWinningMultiplier());
-            gameMenuBalance = gameMenuBalance + (betAmount * s1.getWinningMultiplier());
-            System.out.println("You have won:" + betWin);
+            if (s1.getWinningMultiplier() > 0) {
+                System.out.println(
+                        "The numbers displayed in order: \n"
+                                + Arrays.toString(s1.getRow1()) + "\n"
+                                + Arrays.toString(s1.getRow2()) + "\n"
+                                + Arrays.toString(s1.getRow3()) + "\n"
+                                + Arrays.toString(s1.getRow4()) + "\n"
+                                + Arrays.toString(s1.getRow5())
+                );
 
+                System.out.println("The winning multiplier is " + s1.getWinningMultiplier());
+                gameMenuBalance = gameMenuBalance + (betAmount * s1.getWinningMultiplier());
+                System.out.println("You have won:" + betWin);
+
+            } else {
+                System.out.println("YOU LOSE");
+                gameMenuBalance = gameMenuBalance - betAmount;
+            }
+            System.out.println("Your new balance is " + gameMenuBalance);
         }
         else
         {
-            System.out.println("YOU LOSE");
-            gameMenuBalance = gameMenuBalance - betAmount;
-
+            System.out.println("You do not have enough funds to make this bet. Please lower your bet. Your balance is :" + gameMenuBalance);
         }
-        System.out.println("Your new balance is " + gameMenuBalance);
+        if (gameMenuBalance <= 0)
+        {
+            System.out.println("You cannot place a bet with no money. Please Deposit. Your balance is " +gameMenuBalance);
+        }
     }
     public void setBetAmount(double betAmount)
     {
