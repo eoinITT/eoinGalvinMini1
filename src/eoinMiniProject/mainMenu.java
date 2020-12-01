@@ -38,7 +38,7 @@ public class mainMenu
         mainFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         mainPanel = new JPanel();
-        mainPanel.setBackground(Color.white);
+        mainPanel.setBackground(Color.darkGray);
     }
 
     public void addMainButtons()
@@ -105,6 +105,7 @@ public class mainMenu
         mainPanel.add(exitButton);
 
         JLabel mainBalance = new JLabel("Your balance is " + balance);
+        mainBalance.setForeground(Color.white);
         mainBalance.setVisible(true);
 
         mainPanel.add(mainBalance);

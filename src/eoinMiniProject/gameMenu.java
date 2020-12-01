@@ -5,16 +5,22 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseListener;
+import java.awt.image.BufferedImage;
+import java.awt.image.ImageObserver;
 import java.io.IOException;
+import java.nio.Buffer;
 import java.util.Arrays;
 
 
-public class gameMenu
+public class gameMenu extends JPanel
 {
-    private double betAmount =5;
+    private double betAmount = 5;
     private double gameMenuBalance;
     private JFrame gameFrame;
     private JPanel gamePanel;
+    BufferedImage imageBanana;
+
 
 
     public gameMenu()
@@ -22,11 +28,10 @@ public class gameMenu
 
     }
 
-    public void setGameMenuBalance(double balance)
-    {
+    public void setGameMenuBalance(double balance) {
 
         gameMenuBalance = balance;
-        
+
     }
 
 
@@ -35,34 +40,32 @@ public class gameMenu
         gameFrame.add(gamePanel);
         gameFrame.setVisible(true);
         addGameFrameButtons();
-        addGameFrameImages();
+
+
     }
 
-    public void createGameFrame()
-    {
+    public void createGameFrame() {
         gameFrame = new JFrame();
         gameFrame.setTitle("Game Menu");
-        gameFrame.setSize(1280,720);
+        gameFrame.setSize(1280, 720);
         gameFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         gamePanel = new JPanel(null);
-        gamePanel.setBackground(Color.white);
+        gamePanel.setBackground(Color.WHITE);
 
     }
-    public void addGameFrameButtons()
-    {
+
+    public void addGameFrameButtons() {
 
         JButton playButton = new JButton();
         try {
             Image img = ImageIO.read(getClass().getResource("spinButton.png"));
             playButton.setIcon(new ImageIcon(img));
             playButton.setBorder(null);
-        }
-        catch (Exception ex)
-        {
+        } catch (Exception ex) {
             System.out.println("failed to add image to button");
         }
-        playButton.setBounds(850,540,205,144);
+        playButton.setBounds(850, 540, 205, 144);
 
         gamePanel.add(playButton);
 
@@ -73,23 +76,23 @@ public class gameMenu
         JButton spin50 = new JButton("$50 Spin");
         JButton spin100 = new JButton("$100 Spin");
 
-        spin5.setSize(100,50);
-        spin10.setSize(100,50);
-        spin25.setSize(100,50);
-        spin50.setSize(100,50);
-        spin100.setSize(100,50);
+        spin5.setSize(100, 50);
+        spin10.setSize(100, 50);
+        spin25.setSize(100, 50);
+        spin50.setSize(100, 50);
+        spin100.setSize(100, 50);
 
-        spin5.setLocation(100,575);
-        spin10.setLocation(250,575);
-        spin25.setLocation(400,575);
-        spin50.setLocation(550,575);
-        spin100.setLocation(700,575);
+        spin5.setLocation(100, 575);
+        spin10.setLocation(250, 575);
+        spin25.setLocation(400, 575);
+        spin50.setLocation(550, 575);
+        spin100.setLocation(700, 575);
 
-        spin5.setBackground(new Color(59,89,182));
-        spin10.setBackground(new Color(59,89,182));
-        spin25.setBackground(new Color(59,89,182));
-        spin50.setBackground(new Color(59,89,182));
-        spin100.setBackground(new Color(59,89,182));
+        spin5.setBackground(new Color(59, 89, 182));
+        spin10.setBackground(new Color(59, 89, 182));
+        spin25.setBackground(new Color(59, 89, 182));
+        spin50.setBackground(new Color(59, 89, 182));
+        spin100.setBackground(new Color(59, 89, 182));
 
         spin5.setFont(new Font("Tahoma", Font.BOLD, 12));
         spin10.setFont(new Font("Tahoma", Font.BOLD, 12));
@@ -105,10 +108,12 @@ public class gameMenu
 
         spin5.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e)
-            {
+            public void actionPerformed(ActionEvent e) {
                 setBetAmount(5);
                 gameFrame.dispose();
+                gamePanel.removeAll();
+                gamePanel.revalidate();
+                gamePanel.repaint();
                 try {
                     displayGameFrame();
                 } catch (IOException ioException) {
@@ -119,10 +124,12 @@ public class gameMenu
 
         spin10.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e)
-            {
+            public void actionPerformed(ActionEvent e) {
                 setBetAmount(10);
                 gameFrame.dispose();
+                gamePanel.removeAll();
+                gamePanel.revalidate();
+                gamePanel.repaint();
                 try {
                     displayGameFrame();
                 } catch (IOException ioException) {
@@ -133,10 +140,12 @@ public class gameMenu
 
         spin25.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e)
-            {
+            public void actionPerformed(ActionEvent e) {
                 setBetAmount(25);
                 gameFrame.dispose();
+                gamePanel.removeAll();
+                gamePanel.revalidate();
+                gamePanel.repaint();
                 try {
                     displayGameFrame();
                 } catch (IOException ioException) {
@@ -147,10 +156,12 @@ public class gameMenu
 
         spin50.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e)
-            {
+            public void actionPerformed(ActionEvent e) {
                 setBetAmount(50);
                 gameFrame.dispose();
+                gamePanel.removeAll();
+                gamePanel.revalidate();
+                gamePanel.repaint();
                 try {
                     displayGameFrame();
                 } catch (IOException ioException) {
@@ -161,10 +172,12 @@ public class gameMenu
 
         spin100.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e)
-            {
+            public void actionPerformed(ActionEvent e) {
                 setBetAmount(100);
                 gameFrame.dispose();
+                gamePanel.removeAll();
+                gamePanel.revalidate();
+                gamePanel.repaint();
                 try {
                     displayGameFrame();
                 } catch (IOException ioException) {
@@ -175,16 +188,15 @@ public class gameMenu
 
         playButton.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e)
-            {
-             spinSlot(betAmount);
-             gameFrame.dispose();
-                try
-                {
+            public void actionPerformed(ActionEvent e) {
+                spinSlot(betAmount);
+                gameFrame.dispose();
+                gamePanel.removeAll();
+                gamePanel.revalidate();
+                gamePanel.repaint(); /* https://stackoverflow.com/questions/38349445/how-to-delete-all-components-in-a-jpanel-dynamically/38350395 */
+                try {
                     displayGameFrame();
-                }
-                catch (IOException ioException)
-                {
+                } catch (IOException ioException) {
                     ioException.printStackTrace();
                 }
             }
@@ -197,24 +209,24 @@ public class gameMenu
         gamePanel.add(spin100);
 
 
-        JLabel currentBet = new JLabel("Your current bet is: "+betAmount);
+        JLabel currentBet = new JLabel("Your current bet is: " + betAmount);
         currentBet.setVisible(true);
-        currentBet.setBounds(1075,580,200,50);
+        currentBet.setBounds(1075, 580, 200, 50);
+
 
         gamePanel.add(currentBet);
 
         JButton returnToMain = new JButton("Return");
         returnToMain.setVisible(true);
-        returnToMain.setSize(100,50);
-        returnToMain.setLocation(1164,1);
-        returnToMain.setBackground(new Color(59,89,182));
+        returnToMain.setSize(100, 50);
+        returnToMain.setLocation(1164, 1);
+        returnToMain.setBackground(new Color(59, 89, 182));
         returnToMain.setForeground(Color.white);
         returnToMain.setFont(new Font("Tahoma", Font.BOLD, 12));
 
         returnToMain.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e)
-            {
+            public void actionPerformed(ActionEvent e) {
                 gameFrame.dispose();
                 mainMenu m1 = new mainMenu();
                 m1.setBalanceAfterGameMenu(gameMenuBalance);
@@ -226,53 +238,31 @@ public class gameMenu
 
         gamePanel.add(returnToMain);
 
-        JLabel currentBalance = new JLabel("Your current balance is: " +gameMenuBalance);
+        JLabel currentBalance = new JLabel("Your current balance is: " + gameMenuBalance);
         currentBalance.setVisible(true);
-        currentBalance.setBounds(375,625,200,50);
+        currentBalance.setBounds(100, 625, 200, 50);
+
 
         gamePanel.add(currentBalance);
+
+        JLabel insufficientFundsLabel = new JLabel("You have insufficient funds to place this bet.");
+        insufficientFundsLabel.setVisible(true);
+        insufficientFundsLabel.setBounds(400, 625, 400, 50);
+
+
+        if (betAmount > gameMenuBalance) {
+            gamePanel.add(insufficientFundsLabel);
+        }
     }
 
-    public void addGameFrameImages()
-    {
-        JLabel labelBanana = new JLabel();
-        ImageIcon ImageBanana = new ImageIcon("ImageBanana.PNG");
-        labelBanana.setIcon(ImageBanana);
-        labelBanana.setBounds(150,150,150,150);
-        labelBanana.setVisible(true);
 
-        JLabel labelBAR = new JLabel();
-        ImageIcon ImageBAR = new ImageIcon("ImageBAR.PNG");
-        labelBAR.setIcon(ImageBAR);
-        labelBAR.setVisible(true);
 
-        JLabel labelCherry = new JLabel();
-        ImageIcon ImageCherry = new ImageIcon("ImageCherry.PNG");
-        labelCherry.setIcon(ImageCherry);
-
-        JLabel labelGrape = new JLabel();
-        ImageIcon ImageGrape = new ImageIcon("ImageGrape.PNG");
-        labelGrape.setIcon(ImageGrape);
-
-        JLabel labelLemon = new JLabel();
-        ImageIcon ImageLemon = new ImageIcon("ImageLemon.PNG");
-        labelLemon.setIcon(ImageLemon);
-
-        gamePanel.add(labelBanana);
-        gamePanel.add(labelBAR);
-        gamePanel.add(labelCherry);
-        gamePanel.add(labelGrape);
-        gamePanel.add(labelLemon);
-    }
-
-    public void spinSlot(double betAmount)
-    {
+    public void spinSlot(double betAmount) {
         slotMath s1 = new slotMath();
 
         double betWin = betAmount * s1.getWinningMultiplier();
 
-        if(betAmount <= gameMenuBalance)
-        {
+        if (betAmount <= gameMenuBalance) {
 
             if (s1.getWinningMultiplier() > 0) {
                 System.out.println(
@@ -293,31 +283,25 @@ public class gameMenu
                 gameMenuBalance = gameMenuBalance - betAmount;
             }
             System.out.println("Your new balance is " + gameMenuBalance);
-        }
-        else
-        {
+        } else {
             System.out.println("You do not have enough funds to make this bet. Please lower your bet. Your balance is :" + gameMenuBalance);
         }
-        if (gameMenuBalance <= 0)
-        {
-            System.out.println("You cannot place a bet with no money. Please Deposit. Your balance is " +gameMenuBalance);
+        if (gameMenuBalance <= 0) {
+            System.out.println("You cannot place a bet with no money. Please Deposit. Your balance is " + gameMenuBalance);
         }
 
     }
-    public void setBetAmount(double betAmount)
-    {
+
+    public void setBetAmount(double betAmount) {
         this.betAmount = betAmount;
     }
 
-    public double getGameMenuBalance()
-    {
+    public double getGameMenuBalance() {
         return gameMenuBalance;
     }
 
-    public double getBetAmount()
-    {
+    public double getBetAmount() {
         return betAmount;
     }
-
 
 }

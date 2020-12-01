@@ -1,6 +1,7 @@
 package eoinMiniProject;
 
 import javax.swing.*;
+import javax.tools.Tool;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -45,7 +46,7 @@ public class bankMenu
         bankFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         bankPanel = new JPanel();
-        bankPanel.setBackground(Color.white);
+        bankPanel.setBackground(Color.darkGray);
     }
 
 
@@ -153,22 +154,9 @@ public class bankMenu
 
         JLabel bankBalance = new JLabel("your current balance is " +bankMenuBalance);
         bankBalance.setVisible(true);
+        bankBalance.setForeground(Color.white);
         bankPanel.add(bankBalance);
-
-
-
     }
-
-
-
-
-
-
-
-
-
-
-
 
 
 }
