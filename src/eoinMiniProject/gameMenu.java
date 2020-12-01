@@ -1,13 +1,12 @@
 package eoinMiniProject;
 
 import javax.imageio.ImageIO;
-import javax.management.monitor.StringMonitorMBean;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
 import java.util.Arrays;
+
 
 
 public class gameMenu extends javax.swing.JFrame
@@ -16,15 +15,35 @@ public class gameMenu extends javax.swing.JFrame
     private double gameMenuBalance;
     private JFrame gameFrame;
     private JPanel gamePanel;
+    JLabel label1 = new JLabel("Label1");
+    JLabel label2 = new JLabel("Label2");
+    JLabel label3 = new JLabel("Label3");
+    JLabel label4 = new JLabel("Label4");
+    JLabel label5 = new JLabel("Label5");
+    JLabel label6 = new JLabel("Label6");
+    JLabel label7 = new JLabel("Label7");
+    JLabel label8 = new JLabel("Label8");
+    JLabel label9 = new JLabel("Label9");
+    JLabel label10 = new JLabel("Label10");
+    JLabel label11 = new JLabel("Label11");
+    JLabel label12 = new JLabel("Label12");
+    JLabel label13 = new JLabel("Label13");
+    JLabel label14 = new JLabel("Label14");
+    JLabel label15 = new JLabel("Label15");
+
+    private JLabel[] labels;
 
     ImageIcon imageBanana = new ImageIcon("imageBanana.png");
     ImageIcon imageBar = new ImageIcon("imageBAR.png");
 
-
+    public void setLabels()
+    {
+        labels = new JLabel[]{label1,label2,label3,label4,label5,label6,label7,label8,label9,label10,label11,label12,label13,label14,label15};
+    }
 
     public gameMenu()
     {
-
+        setLabels();
     }
 
     public void setGameMenuBalance(double balance) {
@@ -241,90 +260,58 @@ public class gameMenu extends javax.swing.JFrame
 
         slotMath s1 = new slotMath();
 
-        JLabel label1 = new JLabel("Label1");
-        JLabel label2 = new JLabel("Label2");
-        JLabel label3 = new JLabel("Label3");
-        JLabel label4 = new JLabel("Label4");
-        JLabel label5 = new JLabel("Label5");
-        JLabel label6 = new JLabel("Label6");
-        JLabel label7 = new JLabel("Label7");
-        JLabel label8 = new JLabel("Label8");
-        JLabel label9 = new JLabel("Label9");
-        JLabel label10 = new JLabel("Label10");
-        JLabel label11 = new JLabel("Label11");
-        JLabel label12 = new JLabel("Label12");
-        JLabel label13 = new JLabel("Label13");
-        JLabel label14 = new JLabel("Label14");
-        JLabel label15 = new JLabel("Label15");
 
-        label1.setIcon(new ImageIcon("imageBanana.png"));
-        label2.setIcon(new ImageIcon("imageBanana.png"));
-        label3.setIcon(new ImageIcon("imageBanana.png"));
-        label4.setIcon(new ImageIcon("imageBanana.png"));
-        label5.setIcon(new ImageIcon("imageBanana.png"));
-        label6.setIcon(new ImageIcon("imageBanana.png"));
-        label7.setIcon(new ImageIcon("imageBanana.png"));
-        label8.setIcon(new ImageIcon("imageBanana.png"));
-        label9.setIcon(new ImageIcon("imageBanana.png"));
-        label10.setIcon(new ImageIcon("imageBanana.png"));
-        label11.setIcon(new ImageIcon("imageBanana.png"));
-        label12.setIcon(new ImageIcon("imageBanana.png"));
-        label13.setIcon(new ImageIcon("imageBanana.png"));
-        label14.setIcon(new ImageIcon("imageBanana.png"));
-        label15.setIcon(new ImageIcon("imageBanana.png"));
+        label1.setBounds(500, 20, 80, 80);
+        label2.setBounds(600, 20, 80, 80);
+        label3.setBounds(700, 20, 80, 80);
+        label4.setBounds(500, 120, 80, 80);
+        label5.setBounds(600, 120, 80, 80);
+        label6.setBounds(700, 120, 80, 80);
+        label7.setBounds(500, 220, 80, 80);
+        label8.setBounds(600, 220, 80, 80);
+        label9.setBounds(700, 220, 80, 80);
+        label10.setBounds(500, 320, 80, 80);
+        label11.setBounds(600, 320, 80, 80);
+        label12.setBounds(700, 320, 80, 80);
+        label13.setBounds(500, 420, 80, 80);
+        label14.setBounds(600, 420, 80, 80);
+        label15.setBounds(700, 420, 80, 80);
 
 
-        label1.setBounds(500, 120, 80, 80);
-        label2.setBounds(600, 120, 80, 80);
-        label3.setBounds(700, 120, 80, 80);
-        label4.setBounds(500, 220, 80, 80);
-        label5.setBounds(600, 220, 80, 80);
-        label6.setBounds(700, 220, 80, 80);
-        label7.setBounds(500, 320, 80, 80);
-        label8.setBounds(600, 320, 80, 80);
-        label9.setBounds(700, 320, 80, 80);
-        label10.setBounds(500, 420, 80, 80);
-        label11.setBounds(600, 420, 80, 80);
-        label12.setBounds(700, 420, 80, 80);
-        label13.setBounds(500, 520, 80, 80);
-        label14.setBounds(600, 520, 80, 80);
-        label15.setBounds(700, 520, 80, 80);
 
-
-        int i;
-        for (i = 0; i <= 14; i = i + 1)
+        for (int i = 0; i <= 14; i = i + 1)
         {
-            if (s1.getFullRows(i) == 1 && i == 1)
+            if (s1.getFullRows(i) == 1)
             {
-                label1.setIcon(new ImageIcon("imageBanana.png"));
+                labels[i].setIcon(new ImageIcon("imageBanana.png"));
             }
-            else if (s1.getFullRows(i) == 2 && i == 1)
+            else if (s1.getFullRows(i) == 2)
             {
-                label1.setIcon(new ImageIcon("imageBAR.png"));
+                labels[i].setIcon(new ImageIcon("imageBAR.png"));
             }
-            else if (s1.getFullRows(i) == 3 && i == 1)
+            else if (s1.getFullRows(i) == 3)
             {
-                label1.setIcon(new ImageIcon("imageCherry.png"));
+                labels[i].setIcon(new ImageIcon("imageCherry.png"));
             }
-            else if (s1.getFullRows(i) == 4 && i == 1)
+            else if (s1.getFullRows(i) == 4 )
             {
-                label1.setIcon(new ImageIcon("imageGrape.png"));
+                labels[i].setIcon(new ImageIcon("imageGrape.png"));
             }
-            else if (s1.getFullRows(i) == 5 && i == 1)
+            else if (s1.getFullRows(i) == 5 )
             {
-                label1.setIcon(new ImageIcon("imageLemon.png"));
+                labels[i].setIcon(new ImageIcon("imageLemon.png"));
             }
-            else if (s1.getFullRows(i) == 6 && i == 1)
+            else if (s1.getFullRows(i) == 6 )
             {
-                label1.setIcon(new ImageIcon("imageMelon.png"));
+                labels[i].setIcon(new ImageIcon("imageMelon.png"));
             }
-            else if (s1.getFullRows(i) == 7 && i == 1)
+            else if (s1.getFullRows(i) == 7 )
             {
-                label1.setIcon(new ImageIcon("imageOrange.png"));
+                labels[i].setIcon(new ImageIcon("imageOrange.png"));
             }
-            else if (s1.getFullRows(i) == 8 && i == 1)
+            else if (s1.getFullRows(i) == 8 )
             {
-                label1.setIcon(new ImageIcon("imageSeven.png"));
+                labels[i].setIcon(new ImageIcon("imageSeven.png"));
             }
 
             gamePanel.add(label1);

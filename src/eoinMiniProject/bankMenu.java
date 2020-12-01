@@ -157,7 +157,5 @@ public class bankMenu
         bankBalance.setForeground(Color.white);
         bankPanel.add(bankBalance);
     }
-
-
 }
 

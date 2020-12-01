@@ -15,6 +15,10 @@ public class mainMenu
 
 
 
+
+
+
+
     public mainMenu()
     {
         setBalance(balance);
