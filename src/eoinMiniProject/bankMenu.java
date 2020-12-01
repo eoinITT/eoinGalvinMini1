@@ -18,7 +18,7 @@ public class bankMenu
 
     public bankMenu()
     {
-        setBankMenuBalance();
+
     }
 
     public void updateBalanceAfterDeposit(double depositAmount)
@@ -30,11 +30,11 @@ public class bankMenu
         bankMenuBalance = bankMenuBalance - withdrawAmount;
     }
 
-    public void setBankMenuBalance()
+    public void setBankMenuBalance(double balance)
     {
-        mainMenu m1 = new mainMenu();
-        bankMenuBalance = m1.getBalance();
+        bankMenuBalance = balance;
     }
+
 
     public void createBankFrame()
     {
@@ -97,7 +97,7 @@ public class bankMenu
                     }
                 }
                 mainMenu m1 = new mainMenu();
-                m1.setBalanceAfterBank();
+                m1.setBalanceAfterBank(bankMenuBalance);
             }
         });
         bankPanel.add(depositButton);
@@ -128,7 +128,7 @@ public class bankMenu
                     displayBankMenu();
                 }
                 mainMenu m1 = new mainMenu();
-                m1.setBalanceAfterBank();
+                m1.setBalanceAfterBank(bankMenuBalance);
             }
         });
         bankPanel.add(withdrawButton);
@@ -142,10 +142,11 @@ public class bankMenu
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                mainMenu m1 = new mainMenu();
-                m1.setBalanceAfterBank();
-                m1.displayMainMenu();
                 bankFrame.dispose();
+                mainMenu m1 = new mainMenu();
+                m1.setBalanceAfterBank(bankMenuBalance);
+                m1.displayMainMenu();
+
             }
         });
         bankPanel.add(backButton);

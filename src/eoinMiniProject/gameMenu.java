@@ -19,16 +19,17 @@ public class gameMenu
 
     public gameMenu()
     {
-        setGameMenuBalance();
+
     }
 
-
-
-    public void setGameMenuBalance()
+    public void setGameMenuBalance(double balance)
     {
-        mainMenu m1 = new mainMenu();
-        gameMenuBalance = m1.getBalance();
+
+        gameMenuBalance = balance;
+        
     }
+
+
     public void displayGameFrame() throws IOException {
         createGameFrame();
         gameFrame.add(gamePanel);
@@ -48,7 +49,8 @@ public class gameMenu
         gamePanel.setBackground(Color.white);
 
     }
-    public void addGameFrameButtons() {
+    public void addGameFrameButtons()
+    {
 
         JButton playButton = new JButton();
         try {
@@ -62,14 +64,6 @@ public class gameMenu
         }
         playButton.setBounds(850,540,205,144);
 
-        playButton.addActionListener(new ActionListener()
-        {
-            @Override
-            public void actionPerformed(ActionEvent e)
-            {
-
-            }
-        });
         gamePanel.add(playButton);
 
 
@@ -114,6 +108,12 @@ public class gameMenu
             public void actionPerformed(ActionEvent e)
             {
                 setBetAmount(5);
+                gameFrame.dispose();
+                try {
+                    displayGameFrame();
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
             }
         });
 
@@ -122,6 +122,12 @@ public class gameMenu
             public void actionPerformed(ActionEvent e)
             {
                 setBetAmount(10);
+                gameFrame.dispose();
+                try {
+                    displayGameFrame();
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
             }
         });
 
@@ -130,6 +136,12 @@ public class gameMenu
             public void actionPerformed(ActionEvent e)
             {
                 setBetAmount(25);
+                gameFrame.dispose();
+                try {
+                    displayGameFrame();
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
             }
         });
 
@@ -138,6 +150,12 @@ public class gameMenu
             public void actionPerformed(ActionEvent e)
             {
                 setBetAmount(50);
+                gameFrame.dispose();
+                try {
+                    displayGameFrame();
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
             }
         });
 
@@ -146,6 +164,12 @@ public class gameMenu
             public void actionPerformed(ActionEvent e)
             {
                 setBetAmount(100);
+                gameFrame.dispose();
+                try {
+                    displayGameFrame();
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
             }
         });
 
@@ -154,6 +178,15 @@ public class gameMenu
             public void actionPerformed(ActionEvent e)
             {
              spinSlot(betAmount);
+             gameFrame.dispose();
+                try
+                {
+                    displayGameFrame();
+                }
+                catch (IOException ioException)
+                {
+                    ioException.printStackTrace();
+                }
             }
         });
 
@@ -162,6 +195,13 @@ public class gameMenu
         gamePanel.add(spin25);
         gamePanel.add(spin50);
         gamePanel.add(spin100);
+
+
+        JLabel currentBet = new JLabel("Your current bet is: "+betAmount);
+        currentBet.setVisible(true);
+        currentBet.setBounds(1075,580,200,50);
+
+        gamePanel.add(currentBet);
 
         JButton returnToMain = new JButton("Return");
         returnToMain.setVisible(true);
@@ -177,33 +217,20 @@ public class gameMenu
             {
                 gameFrame.dispose();
                 mainMenu m1 = new mainMenu();
+                m1.setBalanceAfterGameMenu(gameMenuBalance);
                 m1.displayMainMenu();
-                m1.setBalanceAfterGameMenu();
+
 
             }
         });
 
         gamePanel.add(returnToMain);
 
-        JButton goToBank = new JButton("Bank");
-        goToBank.setVisible(true);
-        goToBank.setSize(100,50);
-        goToBank.setLocation(1050,1);
-        goToBank.setBackground(new Color(59,89,182));
-        goToBank.setForeground(Color.white);
-        goToBank.setFont(new Font("Tahoma", Font.BOLD, 12));
+        JLabel currentBalance = new JLabel("Your current balance is: " +gameMenuBalance);
+        currentBalance.setVisible(true);
+        currentBalance.setBounds(375,625,200,50);
 
-        goToBank.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e)
-            {
-                gameFrame.dispose();
-                bankMenu b1 = new bankMenu();
-                b1.displayBankMenu();
-            }
-        });
-
-        gamePanel.add(goToBank);
+        gamePanel.add(currentBalance);
     }
 
     public void addGameFrameImages()
@@ -275,6 +302,7 @@ public class gameMenu
         {
             System.out.println("You cannot place a bet with no money. Please Deposit. Your balance is " +gameMenuBalance);
         }
+
     }
     public void setBetAmount(double betAmount)
     {
@@ -286,6 +314,10 @@ public class gameMenu
         return gameMenuBalance;
     }
 
+    public double getBetAmount()
+    {
+        return betAmount;
+    }
 
 
 }

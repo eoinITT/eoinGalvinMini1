@@ -11,13 +11,13 @@ public class mainMenu
 {
     private JFrame mainFrame;
     private JPanel mainPanel;
-    private double balance = 500;
+    private double balance;
 
 
 
     public mainMenu()
     {
-
+        setBalance(balance);
     }
 
 
@@ -56,6 +56,7 @@ public class mainMenu
             {
                 mainFrame.dispose();
                 bankMenu b1 = new bankMenu();
+                b1.setBankMenuBalance(balance);
                 b1.displayBankMenu();
             }
         });
@@ -71,7 +72,9 @@ public class mainMenu
             @Override
             public void actionPerformed(ActionEvent e)
             {
+                mainFrame.dispose();
                 gameMenu g1 = new gameMenu();
+                g1.setGameMenuBalance(balance);
 
                 try
                 {
@@ -80,7 +83,7 @@ public class mainMenu
                 {
                     ioException.printStackTrace();
                 }
-                mainFrame.dispose();
+
 
 
             }
@@ -112,15 +115,17 @@ public class mainMenu
         return balance;
     }
 
-    public void setBalanceAfterGameMenu ()
+    public void setBalanceAfterGameMenu (double gameMenuBalance)
     {
-        gameMenu g1 = new gameMenu();
-        this.balance =  g1.getGameMenuBalance();
-
+        balance = gameMenuBalance;
     }
-    public void setBalanceAfterBank()
+    public void setBalanceAfterBank(double bankMenuBalance)
     {
-        bankMenu b1 = new bankMenu();
-        balance = b1.getBankMenuBalance();
+        balance = bankMenuBalance;
+    }
+
+    public void setBalance(double balance)
+    {
+        this.balance = balance;
     }
 }
