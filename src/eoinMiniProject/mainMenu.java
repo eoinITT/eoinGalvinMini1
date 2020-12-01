@@ -11,7 +11,7 @@ public class mainMenu
 {
     private JFrame mainFrame;
     private JPanel mainPanel;
-    private double balance;
+    private double balance = 1000;
 
 
 
@@ -76,13 +76,9 @@ public class mainMenu
                 gameMenu g1 = new gameMenu();
                 g1.setGameMenuBalance(balance);
 
-                try
-                {
+
                     g1.displayGameFrame();
-                } catch (IOException ioException)
-                {
-                    ioException.printStackTrace();
-                }
+
 
 
 

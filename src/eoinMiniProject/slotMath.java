@@ -21,6 +21,7 @@ public class slotMath {
     private int[] row3;
     private int[] row4;
     private int[] row5;
+    private int[] fullRows;
 
 
     private double winningMultiplierBasedOnSymbolRow1;
@@ -31,14 +32,14 @@ public class slotMath {
     private double winningMultiplier;
 
 /*
-    0 - 12.5 = 1 (apple) 3 in a row = 9x multiplier of bet
-    12.5 - 25 = 2 (grape) 3 in a row = 12x multiplier of bet
-    25 - 37.5 = 3 (lemon) 3 in a row = 12x multiplier of bet
-    37.5 - 50 = 4 (cherry) 3 in a row = 15x multiplier of bet
-    50 - 62.5 = 5 (banana) 3 in a row = 15x multiplier of bet
+    0 - 12.5 = 1 (banana) 3 in a row = 9x multiplier of bet
+    12.5 - 25 = 2 (BAR) 3 in a row = 12x multiplier of bet
+    25 - 37.5 = 3 (Cherry) 3 in a row = 12x multiplier of bet
+    37.5 - 50 = 4 (Grape) 3 in a row = 15x multiplier of bet
+    50 - 62.5 = 5 (Lemon) 3 in a row = 15x multiplier of bet
     62.5 - 75 = 6 (watermelon) 3 in a row = 18x multiplier of bet
     75 - 87.5 = 7 (orange) 3 in a row = 24x multiplier of bet
-    87.5 - 100 = 8 (BAR) 3 in a row = 30x multiplier of bet
+    87.5 - 100 = 8 (seven) 3 in a row = 30x multiplier of bet
 
     */
 
@@ -70,6 +71,7 @@ public slotMath ()
     setWinningMultiplierBasedOnSymbolRow4();
     setWinningMultiplierBasedOnSymbolRow5();
     setWinningMultiplier();
+    setFullRows();
 
 
 
@@ -401,9 +403,19 @@ public slotMath ()
     }
 
 
-    public double getWinningMultiplier() {
+    public double getWinningMultiplier()
+    {
         return winningMultiplier;
+    }
 
+    public int getFullRows(int i)
+    {
+        return fullRows[i];
+    }
+
+    public void setFullRows()
+    {
+        fullRows = new int[]{randomNum1,randomNum2,randomNum3,randomNum4,randomNum5,randomNum6,randomNum7,randomNum8,randomNum9,randomNum10,randomNum11,randomNum12,randomNum13,randomNum14,randomNum15};
     }
 }
 

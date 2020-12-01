@@ -1,25 +1,24 @@
 package eoinMiniProject;
 
 import javax.imageio.ImageIO;
+import javax.management.monitor.StringMonitorMBean;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseListener;
-import java.awt.image.BufferedImage;
-import java.awt.image.ImageObserver;
 import java.io.IOException;
-import java.nio.Buffer;
 import java.util.Arrays;
 
 
-public class gameMenu extends JPanel
+public class gameMenu extends javax.swing.JFrame
 {
     private double betAmount = 5;
     private double gameMenuBalance;
     private JFrame gameFrame;
     private JPanel gamePanel;
-    BufferedImage imageBanana;
+
+    ImageIcon imageBanana = new ImageIcon("imageBanana.png");
+    ImageIcon imageBar = new ImageIcon("imageBAR.png");
 
 
 
@@ -35,7 +34,8 @@ public class gameMenu extends JPanel
     }
 
 
-    public void displayGameFrame() throws IOException {
+    public void displayGameFrame()
+    {
         createGameFrame();
         gameFrame.add(gamePanel);
         gameFrame.setVisible(true);
@@ -114,11 +114,8 @@ public class gameMenu extends JPanel
                 gamePanel.removeAll();
                 gamePanel.revalidate();
                 gamePanel.repaint();
-                try {
-                    displayGameFrame();
-                } catch (IOException ioException) {
-                    ioException.printStackTrace();
-                }
+                displayGameFrame();
+
             }
         });
 
@@ -130,11 +127,8 @@ public class gameMenu extends JPanel
                 gamePanel.removeAll();
                 gamePanel.revalidate();
                 gamePanel.repaint();
-                try {
-                    displayGameFrame();
-                } catch (IOException ioException) {
-                    ioException.printStackTrace();
-                }
+                displayGameFrame();
+
             }
         });
 
@@ -146,11 +140,9 @@ public class gameMenu extends JPanel
                 gamePanel.removeAll();
                 gamePanel.revalidate();
                 gamePanel.repaint();
-                try {
+
                     displayGameFrame();
-                } catch (IOException ioException) {
-                    ioException.printStackTrace();
-                }
+
             }
         });
 
@@ -162,11 +154,9 @@ public class gameMenu extends JPanel
                 gamePanel.removeAll();
                 gamePanel.revalidate();
                 gamePanel.repaint();
-                try {
+
                     displayGameFrame();
-                } catch (IOException ioException) {
-                    ioException.printStackTrace();
-                }
+
             }
         });
 
@@ -178,11 +168,8 @@ public class gameMenu extends JPanel
                 gamePanel.removeAll();
                 gamePanel.revalidate();
                 gamePanel.repaint();
-                try {
-                    displayGameFrame();
-                } catch (IOException ioException) {
-                    ioException.printStackTrace();
-                }
+                displayGameFrame();
+
             }
         });
 
@@ -193,12 +180,10 @@ public class gameMenu extends JPanel
                 gameFrame.dispose();
                 gamePanel.removeAll();
                 gamePanel.revalidate();
-                gamePanel.repaint(); /* https://stackoverflow.com/questions/38349445/how-to-delete-all-components-in-a-jpanel-dynamically/38350395 */
-                try {
+                gamePanel.repaint();  /* https://stackoverflow.com/questions/38349445/how-to-delete-all-components-in-a-jpanel-dynamically/38350395 */
+
                     displayGameFrame();
-                } catch (IOException ioException) {
-                    ioException.printStackTrace();
-                }
+
             }
         });
 
@@ -253,9 +238,112 @@ public class gameMenu extends JPanel
         if (betAmount > gameMenuBalance) {
             gamePanel.add(insufficientFundsLabel);
         }
+
+        slotMath s1 = new slotMath();
+
+        JLabel label1 = new JLabel("Label1");
+        JLabel label2 = new JLabel("Label2");
+        JLabel label3 = new JLabel("Label3");
+        JLabel label4 = new JLabel("Label4");
+        JLabel label5 = new JLabel("Label5");
+        JLabel label6 = new JLabel("Label6");
+        JLabel label7 = new JLabel("Label7");
+        JLabel label8 = new JLabel("Label8");
+        JLabel label9 = new JLabel("Label9");
+        JLabel label10 = new JLabel("Label10");
+        JLabel label11 = new JLabel("Label11");
+        JLabel label12 = new JLabel("Label12");
+        JLabel label13 = new JLabel("Label13");
+        JLabel label14 = new JLabel("Label14");
+        JLabel label15 = new JLabel("Label15");
+
+        label1.setIcon(new ImageIcon("imageBanana.png"));
+        label2.setIcon(new ImageIcon("imageBanana.png"));
+        label3.setIcon(new ImageIcon("imageBanana.png"));
+        label4.setIcon(new ImageIcon("imageBanana.png"));
+        label5.setIcon(new ImageIcon("imageBanana.png"));
+        label6.setIcon(new ImageIcon("imageBanana.png"));
+        label7.setIcon(new ImageIcon("imageBanana.png"));
+        label8.setIcon(new ImageIcon("imageBanana.png"));
+        label9.setIcon(new ImageIcon("imageBanana.png"));
+        label10.setIcon(new ImageIcon("imageBanana.png"));
+        label11.setIcon(new ImageIcon("imageBanana.png"));
+        label12.setIcon(new ImageIcon("imageBanana.png"));
+        label13.setIcon(new ImageIcon("imageBanana.png"));
+        label14.setIcon(new ImageIcon("imageBanana.png"));
+        label15.setIcon(new ImageIcon("imageBanana.png"));
+
+
+        label1.setBounds(500, 120, 80, 80);
+        label2.setBounds(600, 120, 80, 80);
+        label3.setBounds(700, 120, 80, 80);
+        label4.setBounds(500, 220, 80, 80);
+        label5.setBounds(600, 220, 80, 80);
+        label6.setBounds(700, 220, 80, 80);
+        label7.setBounds(500, 320, 80, 80);
+        label8.setBounds(600, 320, 80, 80);
+        label9.setBounds(700, 320, 80, 80);
+        label10.setBounds(500, 420, 80, 80);
+        label11.setBounds(600, 420, 80, 80);
+        label12.setBounds(700, 420, 80, 80);
+        label13.setBounds(500, 520, 80, 80);
+        label14.setBounds(600, 520, 80, 80);
+        label15.setBounds(700, 520, 80, 80);
+
+
+        int i;
+        for (i = 0; i <= 14; i = i + 1)
+        {
+            if (s1.getFullRows(i) == 1 && i == 1)
+            {
+                label1.setIcon(new ImageIcon("imageBanana.png"));
+            }
+            else if (s1.getFullRows(i) == 2 && i == 1)
+            {
+                label1.setIcon(new ImageIcon("imageBAR.png"));
+            }
+            else if (s1.getFullRows(i) == 3 && i == 1)
+            {
+                label1.setIcon(new ImageIcon("imageCherry.png"));
+            }
+            else if (s1.getFullRows(i) == 4 && i == 1)
+            {
+                label1.setIcon(new ImageIcon("imageGrape.png"));
+            }
+            else if (s1.getFullRows(i) == 5 && i == 1)
+            {
+                label1.setIcon(new ImageIcon("imageLemon.png"));
+            }
+            else if (s1.getFullRows(i) == 6 && i == 1)
+            {
+                label1.setIcon(new ImageIcon("imageMelon.png"));
+            }
+            else if (s1.getFullRows(i) == 7 && i == 1)
+            {
+                label1.setIcon(new ImageIcon("imageOrange.png"));
+            }
+            else if (s1.getFullRows(i) == 8 && i == 1)
+            {
+                label1.setIcon(new ImageIcon("imageSeven.png"));
+            }
+
+            gamePanel.add(label1);
+            gamePanel.add(label2);
+            gamePanel.add(label3);
+            gamePanel.add(label4);
+            gamePanel.add(label5);
+            gamePanel.add(label6);
+            gamePanel.add(label7);
+            gamePanel.add(label8);
+            gamePanel.add(label9);
+            gamePanel.add(label10);
+            gamePanel.add(label11);
+            gamePanel.add(label12);
+            gamePanel.add(label13);
+            gamePanel.add(label14);
+            gamePanel.add(label15);
+        }
     }
-
-
 
     public void spinSlot(double betAmount) {
         slotMath s1 = new slotMath();
@@ -274,7 +362,9 @@ public class gameMenu extends JPanel
                                 + Arrays.toString(s1.getRow5())
                 );
 
+
                 System.out.println("The winning multiplier is " + s1.getWinningMultiplier());
+                gameMenuBalance = gameMenuBalance - betAmount;
                 gameMenuBalance = gameMenuBalance + (betAmount * s1.getWinningMultiplier());
                 System.out.println("You have won:" + betWin);
 
@@ -290,17 +380,22 @@ public class gameMenu extends JPanel
             System.out.println("You cannot place a bet with no money. Please Deposit. Your balance is " + gameMenuBalance);
         }
 
+
+
     }
 
-    public void setBetAmount(double betAmount) {
+    public void setBetAmount(double betAmount)
+    {
         this.betAmount = betAmount;
     }
 
-    public double getGameMenuBalance() {
+    public double getGameMenuBalance()
+    {
         return gameMenuBalance;
     }
 
-    public double getBetAmount() {
+    public double getBetAmount()
+    {
         return betAmount;
     }
 
