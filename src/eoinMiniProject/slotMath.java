@@ -45,8 +45,39 @@ public class slotMath {
 
 public slotMath ()
 {
-
+    setFullRows();
 }
+    public void callSetters()
+    {
+        setRandomNum1();
+        setRandomNum2();
+        setRandomNum3();
+        setRandomNum4();
+        setRandomNum5();
+        setRandomNum6();
+        setRandomNum7();
+        setRandomNum8();
+        setRandomNum9();
+        setRandomNum10();
+        setRandomNum11();
+        setRandomNum12();
+        setRandomNum13();
+        setRandomNum14();
+        setRandomNum15();
+        setRow1();
+        setRow2();
+        setRow3();
+        setRow4();
+        setRow5();
+        setWinningMultiplierBasedOnSymbolRow1();
+        setWinningMultiplierBasedOnSymbolRow2();
+        setWinningMultiplierBasedOnSymbolRow3();
+        setWinningMultiplierBasedOnSymbolRow4();
+        setWinningMultiplierBasedOnSymbolRow5();
+        setWinningMultiplier();
+        setFullRows();
+    }
+
     public int returnRandom ()
     {
         int randomNum = 0;
@@ -373,6 +404,10 @@ public slotMath ()
         if (checkArrayEquals(row1) && checkArrayEquals(row2) && checkArrayEquals(row3) && checkArrayEquals(row4) && checkArrayEquals(row5))
         {
             winningMultiplier = winningMultiplierBasedOnSymbolRow1 * winningMultiplierBasedOnSymbolRow2 * winningMultiplierBasedOnSymbolRow3 * winningMultiplierBasedOnSymbolRow4 * winningMultiplierBasedOnSymbolRow5;
+        }
+        if(!checkArrayEquals(row1) && !checkArrayEquals(row2) && !checkArrayEquals(row3) && !checkArrayEquals(row4) && !checkArrayEquals(row5))
+        {
+            winningMultiplier = 0;
         }
     }
 

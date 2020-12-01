@@ -11,7 +11,7 @@ public class mainMenu
 {
     private JFrame mainFrame;
     private JPanel mainPanel;
-    private double balance = 1000;
+    private double balance;
 
 
 
@@ -79,9 +79,7 @@ public class mainMenu
                 mainFrame.dispose();
                 gameMenu g1 = new gameMenu();
                 g1.setGameMenuBalance(balance);
-
-
-                    g1.displayGameFrame();
+                g1.displayGameFrame();
 
 
 

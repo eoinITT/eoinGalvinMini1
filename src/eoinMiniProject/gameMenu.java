@@ -15,23 +15,27 @@ public class gameMenu extends javax.swing.JFrame
     private double gameMenuBalance;
     private JFrame gameFrame;
     private JPanel gamePanel;
-    JLabel label1 = new JLabel("Label1");
-    JLabel label2 = new JLabel("Label2");
-    JLabel label3 = new JLabel("Label3");
-    JLabel label4 = new JLabel("Label4");
-    JLabel label5 = new JLabel("Label5");
-    JLabel label6 = new JLabel("Label6");
-    JLabel label7 = new JLabel("Label7");
-    JLabel label8 = new JLabel("Label8");
-    JLabel label9 = new JLabel("Label9");
-    JLabel label10 = new JLabel("Label10");
-    JLabel label11 = new JLabel("Label11");
-    JLabel label12 = new JLabel("Label12");
-    JLabel label13 = new JLabel("Label13");
-    JLabel label14 = new JLabel("Label14");
-    JLabel label15 = new JLabel("Label15");
+    JLabel label1 = new JLabel();
+    JLabel label2 = new JLabel();
+    JLabel label3 = new JLabel();
+    JLabel label4 = new JLabel();
+    JLabel label5 = new JLabel();
+    JLabel label6 = new JLabel();
+    JLabel label7 = new JLabel();
+    JLabel label8 = new JLabel();
+    JLabel label9 = new JLabel();
+    JLabel label10 = new JLabel();
+    JLabel label11 = new JLabel();
+    JLabel label12 = new JLabel();
+    JLabel label13 = new JLabel();
+    JLabel label14 = new JLabel();
+    JLabel label15 = new JLabel();
 
     slotMath s1 = new slotMath();
+
+
+
+
 
     private JLabel[] labels;
 
@@ -57,10 +61,12 @@ public class gameMenu extends javax.swing.JFrame
 
     public void displayGameFrame()
     {
+
         createGameFrame();
         gameFrame.add(gamePanel);
         gameFrame.setVisible(true);
         addGameFrameButtons();
+
 
 
     }
@@ -78,65 +84,25 @@ public class gameMenu extends javax.swing.JFrame
 
     public void spinSlot(double betAmount)
     {
-        s1.setRandomNum1();
-        s1.setRandomNum2();
-        s1.setRandomNum3();
-        s1.setRandomNum4();
-        s1.setRandomNum5();
-        s1.setRandomNum6();
-        s1.setRandomNum7();
-        s1.setRandomNum8();
-        s1.setRandomNum9();
-        s1.setRandomNum10();
-        s1.setRandomNum11();
-        s1.setRandomNum12();
-        s1.setRandomNum13();
-        s1.setRandomNum14();
-        s1.setRandomNum15();
-        s1.setRow1();
-        s1.setRow2();
-        s1.setRow3();
-        s1.setRow4();
-        s1.setRow5();
-        s1.setWinningMultiplierBasedOnSymbolRow1();
-        s1.setWinningMultiplierBasedOnSymbolRow2();
-        s1.setWinningMultiplierBasedOnSymbolRow3();
-        s1.setWinningMultiplierBasedOnSymbolRow4();
-        s1.setWinningMultiplierBasedOnSymbolRow5();
-        s1.setWinningMultiplier();
-        s1.setFullRows();
-
+        s1.callSetters();
         double betWin = betAmount * s1.getWinningMultiplier();
 
         if (betAmount <= gameMenuBalance) {
 
-            if (s1.getWinningMultiplier() > 0) {
-                System.out.println(
-                        "The numbers displayed in order: \n"
-                                + Arrays.toString(s1.getRow1()) + "\n"
-                                + Arrays.toString(s1.getRow2()) + "\n"
-                                + Arrays.toString(s1.getRow3()) + "\n"
-                                + Arrays.toString(s1.getRow4()) + "\n"
-                                + Arrays.toString(s1.getRow5())
-                );
-
-
-                System.out.println("The winning multiplier is " + s1.getWinningMultiplier());
+            if (s1.getWinningMultiplier() > 0)
+            {
                 gameMenuBalance = gameMenuBalance - betAmount;
                 gameMenuBalance = gameMenuBalance + (betAmount * s1.getWinningMultiplier());
-                System.out.println("You have won:" + betWin);
 
-            } else {
-                System.out.println("YOU LOSE");
+
+            } else
+                {
+
                 gameMenuBalance = gameMenuBalance - betAmount;
             }
-            System.out.println("Your new balance is " + gameMenuBalance);
-        } else {
-            System.out.println("You do not have enough funds to make this bet. Please lower your bet. Your balance is :" + gameMenuBalance);
+
         }
-        if (gameMenuBalance <= 0) {
-            System.out.println("You cannot place a bet with no money. Please Deposit. Your balance is " + gameMenuBalance);
-        }
+
 
 
 
@@ -167,6 +133,20 @@ public class gameMenu extends javax.swing.JFrame
             System.out.println("failed to add image to button");
         }
         playButton.setBounds(850, 540, 205, 144);
+
+        playButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                spinSlot(betAmount);
+                gameFrame.dispose();
+                gamePanel.removeAll();
+                gamePanel.revalidate();
+                gamePanel.repaint();  /* https://stackoverflow.com/questions/38349445/how-to-delete-all-components-in-a-jpanel-dynamically/38350395 */
+
+                displayGameFrame();
+
+            }
+        });
 
         gamePanel.add(playButton);
 
@@ -273,19 +253,6 @@ public class gameMenu extends javax.swing.JFrame
             }
         });
 
-        playButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                spinSlot(betAmount);
-                gameFrame.dispose();
-                gamePanel.removeAll();
-                gamePanel.revalidate();
-                gamePanel.repaint();  /* https://stackoverflow.com/questions/38349445/how-to-delete-all-components-in-a-jpanel-dynamically/38350395 */
-
-                displayGameFrame();
-
-            }
-        });
 
         gamePanel.add(spin5);
         gamePanel.add(spin10);
