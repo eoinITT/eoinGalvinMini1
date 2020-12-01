@@ -74,6 +74,60 @@ public class gameMenu extends javax.swing.JFrame
 
     }
 
+    public void spinSlot(double betAmount)
+    {
+        slotMath s1 = new slotMath();
+
+        double betWin = betAmount * s1.getWinningMultiplier();
+
+        if (betAmount <= gameMenuBalance) {
+
+            if (s1.getWinningMultiplier() > 0) {
+                System.out.println(
+                        "The numbers displayed in order: \n"
+                                + Arrays.toString(s1.getRow1()) + "\n"
+                                + Arrays.toString(s1.getRow2()) + "\n"
+                                + Arrays.toString(s1.getRow3()) + "\n"
+                                + Arrays.toString(s1.getRow4()) + "\n"
+                                + Arrays.toString(s1.getRow5())
+                );
+
+
+                System.out.println("The winning multiplier is " + s1.getWinningMultiplier());
+                gameMenuBalance = gameMenuBalance - betAmount;
+                gameMenuBalance = gameMenuBalance + (betAmount * s1.getWinningMultiplier());
+                System.out.println("You have won:" + betWin);
+
+            } else {
+                System.out.println("YOU LOSE");
+                gameMenuBalance = gameMenuBalance - betAmount;
+            }
+            System.out.println("Your new balance is " + gameMenuBalance);
+        } else {
+            System.out.println("You do not have enough funds to make this bet. Please lower your bet. Your balance is :" + gameMenuBalance);
+        }
+        if (gameMenuBalance <= 0) {
+            System.out.println("You cannot place a bet with no money. Please Deposit. Your balance is " + gameMenuBalance);
+        }
+
+
+
+    }
+
+    public void setBetAmount(double betAmount)
+    {
+        this.betAmount = betAmount;
+    }
+
+    public double getGameMenuBalance()
+    {
+        return gameMenuBalance;
+    }
+
+    public double getBetAmount()
+    {
+        return betAmount;
+    }
     public void addGameFrameButtons() {
 
         JButton playButton = new JButton();
@@ -160,7 +214,7 @@ public class gameMenu extends javax.swing.JFrame
                 gamePanel.revalidate();
                 gamePanel.repaint();
 
-                    displayGameFrame();
+                displayGameFrame();
 
             }
         });
@@ -174,7 +228,7 @@ public class gameMenu extends javax.swing.JFrame
                 gamePanel.revalidate();
                 gamePanel.repaint();
 
-                    displayGameFrame();
+                displayGameFrame();
 
             }
         });
@@ -188,7 +242,6 @@ public class gameMenu extends javax.swing.JFrame
                 gamePanel.revalidate();
                 gamePanel.repaint();
                 displayGameFrame();
-
             }
         });
 
@@ -201,7 +254,7 @@ public class gameMenu extends javax.swing.JFrame
                 gamePanel.revalidate();
                 gamePanel.repaint();  /* https://stackoverflow.com/questions/38349445/how-to-delete-all-components-in-a-jpanel-dynamically/38350395 */
 
-                    displayGameFrame();
+                displayGameFrame();
 
             }
         });
@@ -330,60 +383,6 @@ public class gameMenu extends javax.swing.JFrame
             gamePanel.add(label14);
             gamePanel.add(label15);
         }
-    }
-
-    public void spinSlot(double betAmount) {
-        slotMath s1 = new slotMath();
-
-        double betWin = betAmount * s1.getWinningMultiplier();
-
-        if (betAmount <= gameMenuBalance) {
-
-            if (s1.getWinningMultiplier() > 0) {
-                System.out.println(
-                        "The numbers displayed in order: \n"
-                                + Arrays.toString(s1.getRow1()) + "\n"
-                                + Arrays.toString(s1.getRow2()) + "\n"
-                                + Arrays.toString(s1.getRow3()) + "\n"
-                                + Arrays.toString(s1.getRow4()) + "\n"
-                                + Arrays.toString(s1.getRow5())
-                );
-
-
-                System.out.println("The winning multiplier is " + s1.getWinningMultiplier());
-                gameMenuBalance = gameMenuBalance - betAmount;
-                gameMenuBalance = gameMenuBalance + (betAmount * s1.getWinningMultiplier());
-                System.out.println("You have won:" + betWin);
-
-            } else {
-                System.out.println("YOU LOSE");
-                gameMenuBalance = gameMenuBalance - betAmount;
-            }
-            System.out.println("Your new balance is " + gameMenuBalance);
-        } else {
-            System.out.println("You do not have enough funds to make this bet. Please lower your bet. Your balance is :" + gameMenuBalance);
-        }
-        if (gameMenuBalance <= 0) {
-            System.out.println("You cannot place a bet with no money. Please Deposit. Your balance is " + gameMenuBalance);
-        }
-
-
-
-    }
-
-    public void setBetAmount(double betAmount)
-    {
-        this.betAmount = betAmount;
-    }
-
-    public double getGameMenuBalance()
-    {
-        return gameMenuBalance;
-    }
-
-    public double getBetAmount()
-    {
-        return betAmount;
     }
 
 }
