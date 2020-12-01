@@ -45,37 +45,6 @@ public class slotMath {
 
 public slotMath ()
 {
-    setRandomNum1();
-    setRandomNum2();
-    setRandomNum3();
-    setRandomNum4();
-    setRandomNum5();
-    setRandomNum6();
-    setRandomNum7();
-    setRandomNum8();
-    setRandomNum9();
-    setRandomNum10();
-    setRandomNum11();
-    setRandomNum12();
-    setRandomNum13();
-    setRandomNum14();
-    setRandomNum15();
-    setRow1();
-    setRow2();
-    setRow3();
-    setRow4();
-    setRow5();
-    setWinningMultiplierBasedOnSymbolRow1();
-    setWinningMultiplierBasedOnSymbolRow2();
-    setWinningMultiplierBasedOnSymbolRow3();
-    setWinningMultiplierBasedOnSymbolRow4();
-    setWinningMultiplierBasedOnSymbolRow5();
-    setWinningMultiplier();
-    setFullRows();
-
-
-
-
 
 }
     public int returnRandom ()
@@ -248,6 +217,7 @@ public slotMath ()
         else if (randomNum13 == 6){winningMultiplierBasedOnSymbolRow5 = 18;}
         else if (randomNum13 == 7){winningMultiplierBasedOnSymbolRow5 = 24;}
         else if (randomNum13 == 8){winningMultiplierBasedOnSymbolRow5 = 30;}
+
     }
 
     public static boolean checkArrayEquals (int[] selectedrow)

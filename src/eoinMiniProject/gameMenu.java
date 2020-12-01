@@ -31,6 +31,8 @@ public class gameMenu extends javax.swing.JFrame
     JLabel label14 = new JLabel("Label14");
     JLabel label15 = new JLabel("Label15");
 
+    slotMath s1 = new slotMath();
+
     private JLabel[] labels;
 
     ImageIcon imageBanana = new ImageIcon("imageBanana.png");
@@ -76,7 +78,33 @@ public class gameMenu extends javax.swing.JFrame
 
     public void spinSlot(double betAmount)
     {
-        slotMath s1 = new slotMath();
+        s1.setRandomNum1();
+        s1.setRandomNum2();
+        s1.setRandomNum3();
+        s1.setRandomNum4();
+        s1.setRandomNum5();
+        s1.setRandomNum6();
+        s1.setRandomNum7();
+        s1.setRandomNum8();
+        s1.setRandomNum9();
+        s1.setRandomNum10();
+        s1.setRandomNum11();
+        s1.setRandomNum12();
+        s1.setRandomNum13();
+        s1.setRandomNum14();
+        s1.setRandomNum15();
+        s1.setRow1();
+        s1.setRow2();
+        s1.setRow3();
+        s1.setRow4();
+        s1.setRow5();
+        s1.setWinningMultiplierBasedOnSymbolRow1();
+        s1.setWinningMultiplierBasedOnSymbolRow2();
+        s1.setWinningMultiplierBasedOnSymbolRow3();
+        s1.setWinningMultiplierBasedOnSymbolRow4();
+        s1.setWinningMultiplierBasedOnSymbolRow5();
+        s1.setWinningMultiplier();
+        s1.setFullRows();
 
         double betWin = betAmount * s1.getWinningMultiplier();
 
@@ -311,7 +339,7 @@ public class gameMenu extends javax.swing.JFrame
             gamePanel.add(insufficientFundsLabel);
         }
 
-        slotMath s1 = new slotMath();
+
 
 
         label1.setBounds(500, 20, 80, 80);
