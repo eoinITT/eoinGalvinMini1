@@ -154,46 +154,6 @@ public slotMath ()
         fullRows = new int[]{randomNum1,randomNum2,randomNum3,randomNum4,randomNum5,randomNum6,randomNum7,randomNum8,randomNum9,randomNum10,randomNum11,randomNum12,randomNum13,randomNum14,randomNum15};
     }
 
-    public int getRandomNum1() {return randomNum1;}
-
-    public int getRandomNum2() {return randomNum2;}
-
-    public int getRandomNum3() {return randomNum3;}
-
-    public int getRandomNum4() {return randomNum4;}
-
-    public int getRandomNum5() {return randomNum5;}
-
-    public int getRandomNum6() {return randomNum6;}
-
-    public int getRandomNum7() {return randomNum7;}
-
-    public int getRandomNum8() {return randomNum8;}
-
-    public int getRandomNum9() {return randomNum9;}
-
-    public int getRandomNum10() {return randomNum1;}
-
-    public int getRandomNum11() {return randomNum2;}
-
-    public int getRandomNum12() {return randomNum3;}
-
-    public int getRandomNum13() {return randomNum4;}
-
-    public int getRandomNum14() {return randomNum5;}
-
-    public int getRandomNum15() {return randomNum6;}
-
-    public int[] getRow1() { return row1;}
-
-    public int[] getRow2() {return row2;}
-
-    public int[] getRow3() {return row3;}
-
-    public int[] getRow4() {return row4;}
-
-    public int[] getRow5() {return row5;}
-
     public void setWinningMultiplierBasedOnSymbolRow1()
     {
              if (randomNum1 == 1){winningMultiplierBasedOnSymbolRow1 = 9;}

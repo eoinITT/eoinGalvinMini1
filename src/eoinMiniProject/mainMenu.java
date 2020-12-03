@@ -4,7 +4,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.*;
 
 
 public class mainMenu
@@ -12,11 +14,9 @@ public class mainMenu
     private JFrame mainFrame;
     private JPanel mainPanel;
     private double balance;
-
-
-
-
-
+    byte[] balanceArray = {(byte) balance};
+    File outFile = new File("file.data");
+    File inFile = new File("file.data");
 
 
     public mainMenu()
@@ -97,6 +97,11 @@ public class mainMenu
             @Override
             public void actionPerformed(ActionEvent e)
             {
+                try {
+                    balanceToFile(balance);
+                } catch (Exception exception) {
+                    exception.printStackTrace();
+                }
                 System.exit(0);
             }
         });
@@ -107,6 +112,7 @@ public class mainMenu
         mainBalance.setVisible(true);
 
         mainPanel.add(mainBalance);
+
     }
 
     public double getBalance()
@@ -127,4 +133,56 @@ public class mainMenu
     {
         this.balance = balance;
     }
+
+    public void balanceToFile(double balance) throws Exception
+    {
+
+        FileOutputStream outStream = new FileOutputStream(outFile);
+                balanceArray[0] = (byte) balance;
+
+        outStream.write(balanceArray);
+        outStream.close();
+    }
+    public void setBalanceFromFile() throws Exception
+    {
+
+        FileInputStream inputStream = new FileInputStream(inFile);
+
+        if (inFile.exists())
+        {
+
+            int fileSize = (int) inFile.length();
+            balanceArray = new byte[fileSize];
+
+            inputStream.read(balanceArray);
+
+
+
+
+            double valuesRead = balanceArray[0];
+            System.out.println("Values read from the file are: " + valuesRead);
+
+            inputStream.close();
+
+            setBalance(valuesRead);
+        }
+    }
+    public void balanceFileExistsCheck()
+    {
+        if(inFile.exists())
+        {
+            try {
+                setBalanceFromFile();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        else {
+
+        }
+    }
+
+
+
 }
+

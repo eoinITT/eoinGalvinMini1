@@ -5,6 +5,8 @@ import javax.tools.Tool;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileOutputStream;
 
 
 public class bankMenu
@@ -82,6 +84,8 @@ public class bankMenu
                     depositAmount = Integer.parseInt(depositAmountAsString);
 
 
+
+
                     if (depositAmount > 1000) {
                         JOptionPane.showMessageDialog(null, "You cannot deposit more than 1000 Euro");
 
@@ -97,6 +101,7 @@ public class bankMenu
                         displayBankMenu();
                     }
                 }
+
                 mainMenu m1 = new mainMenu();
                 m1.setBalanceAfterBank(bankMenuBalance);
             }
@@ -157,5 +162,7 @@ public class bankMenu
         bankBalance.setForeground(Color.white);
         bankPanel.add(bankBalance);
     }
+
+
 }
 

@@ -33,14 +33,8 @@ public class gameMenu extends javax.swing.JFrame
 
     slotMath s1 = new slotMath();
 
-
-
-
-
     private JLabel[] labels;
 
-    ImageIcon imageBanana = new ImageIcon("imageBanana.png");
-    ImageIcon imageBar = new ImageIcon("imageBAR.png");
 
     public void setLabels()
     {
@@ -78,7 +72,7 @@ public class gameMenu extends javax.swing.JFrame
         gameFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         gamePanel = new JPanel(null);
-        gamePanel.setBackground(Color.WHITE);
+        gamePanel.setBackground(new Color(0,175,206));
 
     }
 
@@ -124,6 +118,8 @@ public class gameMenu extends javax.swing.JFrame
     }
     public void addGameFrameButtons() {
 
+
+
         JButton playButton = new JButton();
         try {
             Image img = ImageIO.read(getClass().getResource("spinButton.png"));
@@ -151,11 +147,11 @@ public class gameMenu extends javax.swing.JFrame
         gamePanel.add(playButton);
 
 
-        JButton spin5 = new JButton("$5 Spin");
-        JButton spin10 = new JButton("$10 Spin");
-        JButton spin25 = new JButton("$25 Spin");
-        JButton spin50 = new JButton("$50 Spin");
-        JButton spin100 = new JButton("$100 Spin");
+        JButton spin5 = new JButton("€5 Spin");
+        JButton spin10 = new JButton("€10 Spin");
+        JButton spin25 = new JButton("€25 Spin");
+        JButton spin50 = new JButton("€50 Spin");
+        JButton spin100 = new JButton("€100 Spin");
 
         spin5.setSize(100, 50);
         spin10.setSize(100, 50);
@@ -261,7 +257,7 @@ public class gameMenu extends javax.swing.JFrame
         gamePanel.add(spin100);
 
 
-        JLabel currentBet = new JLabel("Your current bet is: " + betAmount);
+        JLabel currentBet = new JLabel("Your current bet is: €" + betAmount);
         currentBet.setVisible(true);
         currentBet.setBounds(1075, 580, 200, 50);
 
@@ -290,7 +286,7 @@ public class gameMenu extends javax.swing.JFrame
 
         gamePanel.add(returnToMain);
 
-        JLabel currentBalance = new JLabel("Your current balance is: " + gameMenuBalance);
+        JLabel currentBalance = new JLabel("Your current balance is: €" + gameMenuBalance);
         currentBalance.setVisible(true);
         currentBalance.setBounds(100, 625, 200, 50);
 
@@ -377,6 +373,32 @@ public class gameMenu extends javax.swing.JFrame
             gamePanel.add(label13);
             gamePanel.add(label14);
             gamePanel.add(label15);
+
+            JLabel winLabelLeft = new JLabel();
+            winLabelLeft.setBounds(200,160,200,200);
+            winLabelLeft.setIcon(new ImageIcon("winImage.png"));
+
+            JLabel winLabelRight = new JLabel();
+            winLabelRight.setBounds(880,160,200,200);
+            winLabelRight.setIcon(new ImageIcon("winImage.png"));
+
+            gamePanel.add(winLabelLeft);
+            gamePanel.add(winLabelRight);
+
+            if(s1.getWinningMultiplier() > 1)
+            {
+                winLabelLeft.setVisible(true);
+                winLabelRight.setVisible(true);
+            }
+            else
+            {
+                winLabelLeft.setVisible(false);
+                winLabelRight.setVisible(false);
+            }
+
+
+
+
         }
     }
 
