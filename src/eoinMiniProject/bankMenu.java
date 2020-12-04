@@ -74,20 +74,26 @@ public class bankMenu
                 while (depositAmount <= 0 || depositAmount > 1000)
                 {
                     depositAmountAsString = JOptionPane.showInputDialog("Enter the amount you wish to deposit: ");
+                    if(depositAmountAsString == null)
+                    {
+                        JOptionPane.showMessageDialog(null,"You have cancelled your deposit");
+                    }
                     depositAmount = Integer.parseInt(depositAmountAsString);
 
 
 
 
-                    if (depositAmount > 1000) {
-                        JOptionPane.showMessageDialog(null, "You cannot deposit more than 1000 Euro");
+                    if (depositAmount > 10000) {
+                        JOptionPane.showMessageDialog(null, "You cannot deposit more than 10000 Euro");
 
                     }
+
                     if (depositAmount < 0) {
                         JOptionPane.showMessageDialog(null, "Please enter a positive number");
                     }
 
-                    else {
+                    if(depositAmount > 0 && depositAmount <= 10000)
+                    {
                         JOptionPane.showMessageDialog(null, "You have deposited " + depositAmountAsString + " Euros");
                         updateBalanceAfterDeposit(Double.parseDouble(depositAmountAsString));
                         bankFrame.dispose();
