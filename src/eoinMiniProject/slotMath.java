@@ -149,6 +149,7 @@ public slotMath ()
     {
         row5 = new int[] {randomNum13,randomNum14,randomNum15};
     }
+
     public void setFullRows()
     {
         fullRows = new int[]{randomNum1,randomNum2,randomNum3,randomNum4,randomNum5,randomNum6,randomNum7,randomNum8,randomNum9,randomNum10,randomNum11,randomNum12,randomNum13,randomNum14,randomNum15};

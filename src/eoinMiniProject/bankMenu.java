@@ -1,12 +1,10 @@
 package eoinMiniProject;
 
 import javax.swing.*;
-import javax.tools.Tool;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.FileOutputStream;
+
 
 
 public class bankMenu
@@ -59,11 +57,6 @@ public class bankMenu
         bankFrame.add(bankPanel);
         bankFrame.setVisible(true);
         addBankButtons();
-    }
-
-    public double getBankMenuBalance()
-    {
-        return bankMenuBalance;
     }
 
     public void addBankButtons()

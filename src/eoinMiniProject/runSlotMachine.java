@@ -1,13 +1,8 @@
 package eoinMiniProject;
-import java.io.*;
-
-
 
 public class runSlotMachine
 {
-
-
-    public static void main(String[] args) throws Exception
+    public static void main(String[] args)
     {
         mainMenu m1 = new mainMenu();
 

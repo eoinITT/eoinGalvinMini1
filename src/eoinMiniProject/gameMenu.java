@@ -5,9 +5,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Arrays;
-
-
 
 public class gameMenu extends javax.swing.JFrame
 {
@@ -79,7 +76,6 @@ public class gameMenu extends javax.swing.JFrame
     public void spinSlot(double betAmount)
     {
         s1.callSetters();
-        double betWin = betAmount * s1.getWinningMultiplier();
 
         if (betAmount <= gameMenuBalance) {
 
@@ -107,15 +103,6 @@ public class gameMenu extends javax.swing.JFrame
         this.betAmount = betAmount;
     }
 
-    public double getGameMenuBalance()
-    {
-        return gameMenuBalance;
-    }
-
-    public double getBetAmount()
-    {
-        return betAmount;
-    }
     public void addGameFrameButtons() {
 
 
@@ -395,10 +382,6 @@ public class gameMenu extends javax.swing.JFrame
                 winLabelLeft.setVisible(false);
                 winLabelRight.setVisible(false);
             }
-
-
-
-
         }
     }
 

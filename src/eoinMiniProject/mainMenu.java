@@ -14,7 +14,7 @@ public class mainMenu
     private JFrame mainFrame;
     private JPanel mainPanel;
     private double balance;
-    byte[] balanceArray = {(byte) balance};
+    double[] balanceArray = {balance};
     File outFile = new File("file.data");
     File inFile = new File("file.data");
 
@@ -138,33 +138,24 @@ public class mainMenu
     {
 
         FileOutputStream outStream = new FileOutputStream(outFile);
-                balanceArray[0] = (byte) balance;
 
-        outStream.write(balanceArray);
-        outStream.close();
+        DataOutputStream dataOutStream = new DataOutputStream(outStream);
+
+        dataOutStream.writeDouble(balance);
     }
     public void setBalanceFromFile() throws Exception
     {
 
         FileInputStream inputStream = new FileInputStream(inFile);
+        DataInputStream dataInStream = new DataInputStream(inputStream);
 
         if (inFile.exists())
         {
-
-            int fileSize = (int) inFile.length();
-            balanceArray = new byte[fileSize];
-
-            inputStream.read(balanceArray);
-
-
-
-
-            double valuesRead = balanceArray[0];
-            System.out.println("Values read from the file are: " + valuesRead);
+            balance = dataInStream.readDouble();
 
             inputStream.close();
 
-            setBalance(valuesRead);
+            setBalance(balance);
         }
     }
     public void balanceFileExistsCheck()
