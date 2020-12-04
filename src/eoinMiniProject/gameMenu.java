@@ -52,14 +52,16 @@ public class gameMenu extends javax.swing.JFrame
 
     public void displayGameFrame()
     {
-
         createGameFrame();
         gameFrame.add(gamePanel);
         gameFrame.setVisible(true);
         addGameFrameButtons();
-
-
-
+    }
+    public void displayGameFrameNoFlash()
+    {
+        gameFrame.add(gamePanel);
+        gameFrame.setVisible(true);
+        addGameFrameButtons();
     }
 
     public void createGameFrame() {
@@ -67,6 +69,7 @@ public class gameMenu extends javax.swing.JFrame
         gameFrame.setTitle("Game Menu");
         gameFrame.setSize(1280, 720);
         gameFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        gameFrame.setBackground(new Color(0,175,206));
 
         gamePanel = new JPanel(null);
         gamePanel.setBackground(new Color(0,175,206));
@@ -121,12 +124,10 @@ public class gameMenu extends javax.swing.JFrame
             @Override
             public void actionPerformed(ActionEvent e) {
                 spinSlot(betAmount);
-                gameFrame.dispose();
                 gamePanel.removeAll();
                 gamePanel.revalidate();
                 gamePanel.repaint();  /* https://stackoverflow.com/questions/38349445/how-to-delete-all-components-in-a-jpanel-dynamically/38350395 */
-
-                displayGameFrame();
+                displayGameFrameNoFlash();
 
             }
         });
@@ -174,11 +175,10 @@ public class gameMenu extends javax.swing.JFrame
             @Override
             public void actionPerformed(ActionEvent e) {
                 setBetAmount(5);
-                gameFrame.dispose();
                 gamePanel.removeAll();
                 gamePanel.revalidate();
                 gamePanel.repaint();
-                displayGameFrame();
+                displayGameFrameNoFlash();
 
             }
         });
@@ -187,11 +187,10 @@ public class gameMenu extends javax.swing.JFrame
             @Override
             public void actionPerformed(ActionEvent e) {
                 setBetAmount(10);
-                gameFrame.dispose();
                 gamePanel.removeAll();
                 gamePanel.revalidate();
                 gamePanel.repaint();
-                displayGameFrame();
+                displayGameFrameNoFlash();
 
             }
         });
@@ -200,12 +199,10 @@ public class gameMenu extends javax.swing.JFrame
             @Override
             public void actionPerformed(ActionEvent e) {
                 setBetAmount(25);
-                gameFrame.dispose();
                 gamePanel.removeAll();
                 gamePanel.revalidate();
                 gamePanel.repaint();
-
-                displayGameFrame();
+                displayGameFrameNoFlash();
 
             }
         });
@@ -214,12 +211,11 @@ public class gameMenu extends javax.swing.JFrame
             @Override
             public void actionPerformed(ActionEvent e) {
                 setBetAmount(50);
-                gameFrame.dispose();
                 gamePanel.removeAll();
                 gamePanel.revalidate();
                 gamePanel.repaint();
 
-                displayGameFrame();
+                displayGameFrameNoFlash();
 
             }
         });
@@ -228,11 +224,10 @@ public class gameMenu extends javax.swing.JFrame
             @Override
             public void actionPerformed(ActionEvent e) {
                 setBetAmount(100);
-                gameFrame.dispose();
                 gamePanel.removeAll();
                 gamePanel.revalidate();
                 gamePanel.repaint();
-                displayGameFrame();
+                displayGameFrameNoFlash();
             }
         });
 
@@ -314,35 +309,35 @@ public class gameMenu extends javax.swing.JFrame
         {
             if (s1.getFullRows(i) == 1)
             {
-                labels[i].setIcon(new ImageIcon("imageBanana.png"));
+                labels[i].setIcon(new ImageIcon("slotImages/imageBanana.png"));
             }
             else if (s1.getFullRows(i) == 2)
             {
-                labels[i].setIcon(new ImageIcon("imageBAR.png"));
+                labels[i].setIcon(new ImageIcon("slotImages/imageBAR.png"));
             }
             else if (s1.getFullRows(i) == 3)
             {
-                labels[i].setIcon(new ImageIcon("imageCherry.png"));
+                labels[i].setIcon(new ImageIcon("slotImages/imageCherry.png"));
             }
             else if (s1.getFullRows(i) == 4 )
             {
-                labels[i].setIcon(new ImageIcon("imageGrape.png"));
+                labels[i].setIcon(new ImageIcon("slotImages/imageGrape.png"));
             }
             else if (s1.getFullRows(i) == 5 )
             {
-                labels[i].setIcon(new ImageIcon("imageLemon.png"));
+                labels[i].setIcon(new ImageIcon("slotImages/imageLemon.png"));
             }
             else if (s1.getFullRows(i) == 6 )
             {
-                labels[i].setIcon(new ImageIcon("imageMelon.png"));
+                labels[i].setIcon(new ImageIcon("slotImages/imageMelon.png"));
             }
             else if (s1.getFullRows(i) == 7 )
             {
-                labels[i].setIcon(new ImageIcon("imageOrange.png"));
+                labels[i].setIcon(new ImageIcon("slotImages/imageOrange.png"));
             }
             else if (s1.getFullRows(i) == 8 )
             {
-                labels[i].setIcon(new ImageIcon("imageSeven.png"));
+                labels[i].setIcon(new ImageIcon("slotImages/imageSeven.png"));
             }
 
             gamePanel.add(label1);
@@ -363,11 +358,11 @@ public class gameMenu extends javax.swing.JFrame
 
             JLabel winLabelLeft = new JLabel();
             winLabelLeft.setBounds(200,160,200,200);
-            winLabelLeft.setIcon(new ImageIcon("winImage.png"));
+            winLabelLeft.setIcon(new ImageIcon("slotImages/winImage.png"));
 
             JLabel winLabelRight = new JLabel();
             winLabelRight.setBounds(880,160,200,200);
-            winLabelRight.setIcon(new ImageIcon("winImage.png"));
+            winLabelRight.setIcon(new ImageIcon("slotImages/winImage.png"));
 
             gamePanel.add(winLabelLeft);
             gamePanel.add(winLabelRight);
