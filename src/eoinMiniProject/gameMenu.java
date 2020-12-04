@@ -383,9 +383,9 @@ public class gameMenu extends javax.swing.JFrame
             }
         }
         Double winAmount = betAmount * s1.getWinningMultiplier();
-        JLabel winAmountLabel = new JLabel("You have won €"+winAmount);
+        JLabel winAmountLabel = new JLabel("You have won €"+winAmount + " (Winning Multiplier " + s1.getWinningMultiplier() +"x)");
         winAmountLabel.setVisible(true);
-        winAmountLabel.setBounds(400, 625, 200, 50);
+        winAmountLabel.setBounds(400, 625, 400, 50);
 
         if(winAmount > 0) {
             gamePanel.add(winAmountLabel);
