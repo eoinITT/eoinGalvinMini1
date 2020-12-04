@@ -4,8 +4,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.io.*;
 
 
@@ -14,7 +12,6 @@ public class mainMenu
     private JFrame mainFrame;
     private JPanel mainPanel;
     private double balance;
-    double[] balanceArray = {balance};
     File outFile = new File("file.data");
     File inFile = new File("file.data");
 
@@ -114,12 +111,6 @@ public class mainMenu
         mainPanel.add(mainBalance);
 
     }
-
-    public double getBalance()
-    {
-        return balance;
-    }
-
     public void setBalanceAfterGameMenu (double gameMenuBalance)
     {
         balance = gameMenuBalance;
@@ -167,9 +158,6 @@ public class mainMenu
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        }
-        else {
-
         }
     }
 
