@@ -74,6 +74,27 @@ public class gameMenu extends javax.swing.JFrame
         gamePanel = new JPanel(null);
         gamePanel.setBackground(new Color(0,175,206));
 
+        gameFrame.addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+                if (JOptionPane.showConfirmDialog(gameFrame,
+                        "Are you sure you want to close this window?", "Close Window?",
+                        JOptionPane.YES_NO_OPTION,
+                        JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION)
+                {
+
+                    mainMenu m1 = new mainMenu();
+                    try {
+                        m1.balanceToFile(gameMenuBalance);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    System.exit(0);
+                }
+            }
+        });
+
+
     }
 
     public void spinSlot(double betAmount)
@@ -369,6 +390,7 @@ public class gameMenu extends javax.swing.JFrame
         if(winAmount > 0) {
             gamePanel.add(winAmountLabel);
         }
+
     }
 
 }

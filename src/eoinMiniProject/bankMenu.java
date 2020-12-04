@@ -47,6 +47,26 @@ public class bankMenu
 
         bankPanel = new JPanel();
         bankPanel.setBackground(Color.darkGray);
+
+        bankFrame.addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+                if (JOptionPane.showConfirmDialog(bankFrame,
+                        "Are you sure you want to close this window?", "Close Window?",
+                        JOptionPane.YES_NO_OPTION,
+                        JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION)
+                {
+
+                    mainMenu m1 = new mainMenu();
+                    try {
+                        m1.balanceToFile(bankMenuBalance);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    System.exit(0);
+                }
+            }
+        });
     }
 
 
@@ -71,38 +91,42 @@ public class bankMenu
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                if(depositAmount <= 0 || depositAmount > 10000)
+                depositAmountAsString = JOptionPane.showInputDialog("Enter the amount you wish to deposit");
+
+                if(depositAmountAsString != null)
                 {
-                    depositAmountAsString = JOptionPane.showInputDialog("Enter the amount you wish to deposit: ");
-                    if(depositAmountAsString == null)
+
+                    if(!depositAmountAsString.equals(""))
                     {
-                        JOptionPane.showMessageDialog(null,"You have cancelled your deposit");
+                        depositAmount = Integer.parseInt(depositAmountAsString);
+
+                        if (depositAmount > 0 && depositAmount <= 10000) {
+                            JOptionPane.showMessageDialog(null, "You have deposited " + depositAmountAsString + " Euros");
+                            updateBalanceAfterDeposit(Double.parseDouble(depositAmountAsString));
+                            bankFrame.dispose();
+                            displayBankMenu();
+                        } else if (depositAmount <= 0) {
+                            JOptionPane.showMessageDialog(null, "Please enter a positive number");
+                        } else if (depositAmount > 10000) {
+                            JOptionPane.showMessageDialog(null, "You cannot deposit more than €10000");
+                        }
+                        mainMenu m1 = new mainMenu();
+                        m1.setBalanceAfterBank(bankMenuBalance);
                     }
-                    depositAmount = Integer.parseInt(depositAmountAsString);
-
-
-
-
-                    if (depositAmount > 10000) {
-                        JOptionPane.showMessageDialog(null, "You cannot deposit more than 10000 Euro");
-
-                    }
-
-                    if (depositAmount < 0) {
-                        JOptionPane.showMessageDialog(null, "Please enter a positive number");
-                    }
-
-                    if(depositAmount > 0 && depositAmount <= 10000)
-                    {
-                        JOptionPane.showMessageDialog(null, "You have deposited " + depositAmountAsString + " Euros");
-                        updateBalanceAfterDeposit(Double.parseDouble(depositAmountAsString));
-                        bankFrame.dispose();
-                        displayBankMenu();
+                    else {
+                        JOptionPane.showMessageDialog(null, "Please enter a positive number between €1 and €10000");
                     }
                 }
+                else {
+                    JOptionPane.showMessageDialog(null, "Transaction Cancelled");
+                }
 
-                mainMenu m1 = new mainMenu();
-                m1.setBalanceAfterBank(bankMenuBalance);
+
+
+
+
+
+
             }
         });
         bankPanel.add(depositButton);
@@ -118,22 +142,34 @@ public class bankMenu
             public void actionPerformed(ActionEvent e)
             {
                 withdrawAmountAsString = JOptionPane.showInputDialog("Enter the amount you wish to Withdraw: ");
-                withdrawAmount = Integer.parseInt(withdrawAmountAsString);
 
-
-                if (withdrawAmount > bankMenuBalance) {
-                    JOptionPane.showMessageDialog(null, "You cannot withdraw more than " + bankMenuBalance);
-                }
-
-                if (withdrawAmount > 0 && withdrawAmount <= bankMenuBalance)
+                if(withdrawAmountAsString != null)
                 {
-                    JOptionPane.showMessageDialog(null, "You have withdrawn " + withdrawAmountAsString + " Euros");
-                    updateBalanceAfterWithdrawal(Double.parseDouble(withdrawAmountAsString));
-                    bankFrame.dispose();
-                    displayBankMenu();
+                    if (!withdrawAmountAsString.equals(""))
+                    {
+                        withdrawAmount = Integer.parseInt(withdrawAmountAsString);
+
+                        if (withdrawAmount > bankMenuBalance) {
+                            JOptionPane.showMessageDialog(null, "You cannot withdraw more than " + bankMenuBalance);
+                        } else if (withdrawAmount > 0 && withdrawAmount <= bankMenuBalance) {
+                            JOptionPane.showMessageDialog(null, "You have withdrawn " + withdrawAmountAsString + " Euros");
+                            updateBalanceAfterWithdrawal(Double.parseDouble(withdrawAmountAsString));
+                            bankFrame.dispose();
+                            displayBankMenu();
+                        } else if (withdrawAmount <= 0) {
+                            JOptionPane.showMessageDialog(null, "Please enter a positive amount to withdraw");
+                        }
+
+                        mainMenu m1 = new mainMenu();
+                        m1.setBalanceAfterBank(bankMenuBalance);
+                    }
+                    else {
+                        JOptionPane.showMessageDialog(null, "Please enter a positive number between €1 and €" +bankMenuBalance);
+                    }
                 }
-                mainMenu m1 = new mainMenu();
-                m1.setBalanceAfterBank(bankMenuBalance);
+                else {
+                    JOptionPane.showMessageDialog(null, "Transaction Cancelled");
+                }
             }
         });
         bankPanel.add(withdrawButton);
