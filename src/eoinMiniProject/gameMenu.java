@@ -175,6 +175,7 @@ public class gameMenu extends javax.swing.JFrame
             @Override
             public void actionPerformed(ActionEvent e) {
                 setBetAmount(5);
+
                 gamePanel.removeAll();
                 gamePanel.revalidate();
                 gamePanel.repaint();
@@ -307,36 +308,21 @@ public class gameMenu extends javax.swing.JFrame
 
         for (int i = 0; i <= 14; i = i + 1)
         {
-            if (s1.getFullRows(i) == 1)
-            {
+            if (s1.getFullRows(i) == 1) {
                 labels[i].setIcon(new ImageIcon("slotImages/imageBanana.png"));
-            }
-            else if (s1.getFullRows(i) == 2)
-            {
+            } else if (s1.getFullRows(i) == 2) {
                 labels[i].setIcon(new ImageIcon("slotImages/imageBAR.png"));
-            }
-            else if (s1.getFullRows(i) == 3)
-            {
+            } else if (s1.getFullRows(i) == 3) {
                 labels[i].setIcon(new ImageIcon("slotImages/imageCherry.png"));
-            }
-            else if (s1.getFullRows(i) == 4 )
-            {
+            } else if (s1.getFullRows(i) == 4) {
                 labels[i].setIcon(new ImageIcon("slotImages/imageGrape.png"));
-            }
-            else if (s1.getFullRows(i) == 5 )
-            {
+            } else if (s1.getFullRows(i) == 5) {
                 labels[i].setIcon(new ImageIcon("slotImages/imageLemon.png"));
-            }
-            else if (s1.getFullRows(i) == 6 )
-            {
+            } else if (s1.getFullRows(i) == 6) {
                 labels[i].setIcon(new ImageIcon("slotImages/imageMelon.png"));
-            }
-            else if (s1.getFullRows(i) == 7 )
-            {
+            } else if (s1.getFullRows(i) == 7) {
                 labels[i].setIcon(new ImageIcon("slotImages/imageOrange.png"));
-            }
-            else if (s1.getFullRows(i) == 8 )
-            {
+            } else if (s1.getFullRows(i) == 8) {
                 labels[i].setIcon(new ImageIcon("slotImages/imageSeven.png"));
             }
 
@@ -357,26 +343,31 @@ public class gameMenu extends javax.swing.JFrame
             gamePanel.add(label15);
 
             JLabel winLabelLeft = new JLabel();
-            winLabelLeft.setBounds(200,160,200,200);
+            winLabelLeft.setBounds(200, 160, 200, 200);
             winLabelLeft.setIcon(new ImageIcon("slotImages/winImage.png"));
 
             JLabel winLabelRight = new JLabel();
-            winLabelRight.setBounds(880,160,200,200);
+            winLabelRight.setBounds(880, 160, 200, 200);
             winLabelRight.setIcon(new ImageIcon("slotImages/winImage.png"));
 
             gamePanel.add(winLabelLeft);
             gamePanel.add(winLabelRight);
 
-            if(s1.getWinningMultiplier() > 1)
-            {
+            if (s1.getWinningMultiplier() > 1) {
                 winLabelLeft.setVisible(true);
                 winLabelRight.setVisible(true);
-            }
-            else
-            {
+            } else {
                 winLabelLeft.setVisible(false);
                 winLabelRight.setVisible(false);
             }
+        }
+        Double winAmount = betAmount * s1.getWinningMultiplier();
+        JLabel winAmountLabel = new JLabel("You have won €"+winAmount);
+        winAmountLabel.setVisible(true);
+        winAmountLabel.setBounds(400, 625, 200, 50);
+
+        if(winAmount > 0) {
+            gamePanel.add(winAmountLabel);
         }
     }
 

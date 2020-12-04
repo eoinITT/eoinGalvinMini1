@@ -71,7 +71,7 @@ public class bankMenu
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                while (depositAmount <= 0 || depositAmount > 1000)
+                if(depositAmount <= 0 || depositAmount > 10000)
                 {
                     depositAmountAsString = JOptionPane.showInputDialog("Enter the amount you wish to deposit: ");
                     if(depositAmountAsString == null)
@@ -164,4 +164,3 @@ public class bankMenu
 
 
 }
-
