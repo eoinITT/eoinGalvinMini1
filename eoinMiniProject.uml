@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>eoinMiniProject</OriginalElement>
+  <nodes>
+    <node x="-945.9999999999998" y="-457.9999999999999">eoinMiniProject.slotMath</node>
+    <node x="-606.9999999999997" y="-461.9999999999999">eoinMiniProject.gameMenu</node>
+    <node x="-358.9999999999998" y="-461.9999999999999">eoinMiniProject.mainMenu</node>
+    <node x="169.00000000000023" y="-459.9999999999999">eoinMiniProject.runSlotMachine</node>
+    <node x="-131.99999999999977" y="-459.9999999999999">eoinMiniProject.bankMenu</node>
+  </nodes>
+  <notes />
+  <edges />
+  <settings layout="Hierarchic Group" zoom="0.5000000000000001" x="147.5" y="216.9999999999999" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+    <Category>Inner Classes</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

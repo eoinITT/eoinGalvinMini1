@@ -74,6 +74,13 @@ public class gameMenu extends javax.swing.JFrame
         gamePanel = new JPanel(null);
         gamePanel.setBackground(new Color(0,175,206));
 
+        // Title: Java: How to capture a JFrame's close button click event?
+        // Author: Ravindra Gullapalli
+        // Website: stackoverflow
+        // Date: February 1st 2012
+        // Availability: Public
+        // Modifications: Changed what happens when the listener is activated
+        // Link: https://stackoverflow.com/questions/9093448/how-to-capture-a-jframes-close-button-click-event
         gameFrame.addWindowListener(new java.awt.event.WindowAdapter() {
             @Override
             public void windowClosing(java.awt.event.WindowEvent windowEvent) {
@@ -93,7 +100,7 @@ public class gameMenu extends javax.swing.JFrame
                 }
             }
         });
-
+        //ends here
 
     }
 
@@ -145,9 +152,18 @@ public class gameMenu extends javax.swing.JFrame
             @Override
             public void actionPerformed(ActionEvent e) {
                 spinSlot(betAmount);
+                // Title: How to delete all components in a JPanel dynamically
+                // Author: rdonuk
+                // Website: stackoverflow
+                // Date: July 13th 2016
+                // Availability: Public
+                // Modifications: None
+                // Link: https://stackoverflow.com/questions/38349445/how-to-delete-all-components-in-a-jpanel-dynamically/38350395
                 gamePanel.removeAll();
                 gamePanel.revalidate();
-                gamePanel.repaint();  /* https://stackoverflow.com/questions/38349445/how-to-delete-all-components-in-a-jpanel-dynamically/38350395 */
+                gamePanel.repaint();
+
+                //ends here
                 displayGameFrameNoFlash();
 
             }

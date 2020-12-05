@@ -210,6 +210,13 @@ public slotMath ()
     }
 
     public static boolean checkArrayEquals (int[] selectedrow)
+    // Title: Java: array if all the same.
+    // Author: user467871
+    // Website: stackoverflow
+    // Date: December 15th 2010
+    // Availability: Public
+    // Modifications: variable names
+    // Link: https://stackoverflow.com/questions/4448698/java-array-if-all-the-same
     {
         for(int i=1; i<selectedrow.length;i++)
         {
@@ -220,6 +227,8 @@ public slotMath ()
         }
                 return true;
     }
+
+    //ends here
 
     public void setWinningMultiplier ()
     {
